@@ -2,11 +2,12 @@
 #
 # This script generates RPM and debian packages.
 #
-# Usage: ./package.sh [VERSION_STRING]
+# Usage: ./package.sh [VERSION_TAG]
 #
-#   VERSION_STRING: version string for deb and RPM packaes.
-#                   If ommited (recommended), it defaults to
-#                   `git describe --tag | sed 's/^v//'`
+#   VERSION_TAG: Tag to determine version and revision string for
+#                deb and RPM packages
+#                If ommited (recommended), it defaults to
+#                `git describe --tags`
 #
 # Build ependencies:
 #   In short, do the following on Ubuntu based distribution to install
@@ -26,12 +27,53 @@
 
 set -e
 
-# Get version number from command line or defaults to use git describe
-pkgver=$1
-if [ "$pkgver" == "" ]; then
-    pkgver=$(git describe --tag | sed 's/^v//')
+# Get version tag from command line or defaults to use git describe
+version_tag=$1
+if [ "$version_tag" == "" ]; then
+    version_tag=$(git describe --tags)
 fi
-echo "Packaging with version number $pkgver"
+
+if [[ "$version_tag" =~ v([0-9.]*)$ ]]; then
+    # For official release, e.g. v1.8.0
+    echo "Packaging official release: $version_tag"
+    version=${BASH_REMATCH[1]}
+
+    rpm_version=$version
+    rpm_revision=1.0
+
+    deb_version=$version
+
+elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+)$ ]]; then
+    # For RC packages, e.g. v1.8.0-rc1
+    echo "Producing RC packages for " $version_tag
+    version=${BASH_REMATCH[1]}
+    rc_tag=${BASH_REMATCH[2]}
+
+    rpm_version=$version
+    rpm_revision=$rc_tag
+
+    deb_version=$version~$rc_tag
+
+elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+.*)$ ]]; then
+    # For unstable packages, e.g.v1.8.0-rc0-4-g994371d with git describe --tags
+    echo Producing unstable packages for tag: $version_tag
+    version=${BASH_REMATCH[1]}
+    pre_release_tag=$(echo ${BASH_REMATCH[2]} | sed -e 's/-/./g')
+
+    rpm_version=$version
+    rpm_revision=$pre_release_tag
+
+    deb_version=$version~$pre_release_tag
+
+else
+    echo "Aborted. invalid version tag. $version_tag"
+    exit 1
+fi
+
+
+echo "Packaging with the following info"
+echo "RPM: version=$rpm_version, revision=$rpm_revision"
+echo "DEB: version=$deb_version"
 
 ## Common args for rpm and deb
 FPM_BASE_ARGS=$(cat <<EOF
@@ -43,8 +85,7 @@ FPM_BASE_ARGS=$(cat <<EOF
 --url 'http://midokura.com' \
 --description 'Python client library for MidoNet API' \
 -d 'python-webob' -d 'python-eventlet' -d 'python-httplib2' \
--s dir \
---version $pkgver
+-s dir
 EOF
 )
 
@@ -70,9 +111,11 @@ function package_rpm() {
     cp -r  src/midonetclient $RPM_BUILD_DIR/usr/lib/python2.7/site-packages/
     cp src/bin/midonet-cli $RPM_BUILD_DIR/usr/bin/
     cp doc/*.gz $RPM_BUILD_DIR/usr/share/man/man1/
+    RPM_ARGS="$RPM_ARGS -v $rpm_version"
     RPM_ARGS="$RPM_ARGS -C build/rpm"
     RPM_ARGS="$RPM_ARGS -d 'python >= 2.6' -d 'python < 2.8'"
     RPM_ARGS="$RPM_ARGS --epoch 1"
+    RPM_ARGS="$RPM_ARGS --iteration $rpm_revision"
     eval fpm $FPM_BASE_ARGS $RPM_ARGS -t rpm .
 }
 
@@ -86,8 +129,10 @@ function package_deb() {
     cp src/bin/midonet-cli $DEB_BUILD_DIR/usr/bin/
     cp doc/*.gz $DEB_BUILD_DIR/usr/share/man/man1/
 
+    DEB_ARGS="$DEB_ARGS -v $deb_version"
     DEB_ARGS="$DEB_ARGS -C build/deb"
     DEB_ARGS="$DEB_ARGS --deb-priority optional"
+
     eval fpm $FPM_BASE_ARGS $DEB_ARGS -t deb .
 }
 
