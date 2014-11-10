@@ -17,6 +17,7 @@ from midonetclient.admin_state_up_mixin import AdminStateUpMixin
 from midonetclient.pool import Pool
 from midonetclient.resource_base import ResourceBase
 
+
 class HealthMonitor(ResourceBase, AdminStateUpMixin):
     """The health monitor JSON model of L4LB feature
     """

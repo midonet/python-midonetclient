@@ -90,6 +90,7 @@ def do_request(uri, method, body=None, query=None, headers=None):
         raise err
     return response, from_json(content)
 
+
 def do_upload(uri, body=None, query=None, headers=None):
     """Processes an HTTP POST request with a binary input and output JSON.
     Returns a 2-tuple made of HTTP response, and content deserialized into an

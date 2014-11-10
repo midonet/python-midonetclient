@@ -2,7 +2,6 @@
 
 from midonetclient.api import MidonetApi
 import logging
-import sys
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -13,12 +12,13 @@ args = {
     'project_id': 'service',
 }
 
+
 def main():
     mc = MidonetApi(**args)
     vtep_management_ip = '119.15.112.22'
 
     # Delete a new VTEP
-    vtep = mc.delete_vtep(vtep_management_ip)
+    mc.delete_vtep(vtep_management_ip)
     print 'Deleted a VTEP.'
 
 

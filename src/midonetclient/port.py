@@ -141,8 +141,6 @@ class Port(resource_base.ResourceBase, AdminStateUpMixin):
         return self
 
     def unlink(self):
-        headers = {'Content-Type':
-                   vendor_media_type.APPLICATION_PORT_LINK_JSON}
         self.auth.do_request(self.dto['link'], 'DELETE')
         self.get()
         return self

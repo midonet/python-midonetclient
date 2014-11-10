@@ -1,5 +1,5 @@
 #!/usr/bin/env python
- 
+
 import logging
 import time
 
@@ -18,8 +18,10 @@ args = {
 
 mido = api.MidonetApi(**args)
 
-for h in mido.get_hosts(): print h.get_name()
+for h in mido.get_hosts():
+    print h.get_name()
 
 time.sleep(2)
 
-for h in mido.get_hosts(): print h.get_name()
+for h in mido.get_hosts():
+    print h.get_name()

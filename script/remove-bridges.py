@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from midonetclient.api import MidonetApi
-import sys
+
 
 def main():
     mn_uri = 'http://localhost:8081'
@@ -10,8 +10,8 @@ def main():
 
     bridges = mc.get_bridges({'tenant_id': my_laptop})
     for bridge in bridges:
-      print("Removing Bridge %s" % bridge.get_id())
-      bridge.delete()
+        print("Removing Bridge %s" % bridge.get_id())
+        bridge.delete()
 
 if __name__ == '__main__':
     main()

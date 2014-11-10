@@ -16,6 +16,7 @@ from midonetclient import vendor_media_type
 from midonetclient.admin_state_up_mixin import AdminStateUpMixin
 from midonetclient.resource_base import ResourceBase
 
+
 class PoolStatistic(ResourceBase, AdminStateUpMixin):
     """The pool statistic JSON model of the L4LB feature
     """
@@ -23,7 +24,7 @@ class PoolStatistic(ResourceBase, AdminStateUpMixin):
     media_type = vendor_media_type.APPLICATION_POOL_STATISTIC_JSON
 
     def __init__(self, uri, dto, auth):
-        super(PoolStats, self).__init__(uri, dto, auth)
+        super(PoolStatistic, self).__init__(uri, dto, auth)
 
     def get_id(self):
         return self.dto['id']
@@ -44,7 +45,7 @@ class PoolStatistic(ResourceBase, AdminStateUpMixin):
         return self.dto['poolId']
 
     def bytes_in(self, bytes_in):
-        self.dto['bytesIn'] = bytes_id
+        self.dto['bytesIn'] = bytes_in
         return self
 
     def bytes_out(self, bytes_out):

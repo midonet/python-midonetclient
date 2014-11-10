@@ -2,7 +2,6 @@
 
 from midonetclient.api import MidonetApi
 import logging
-import sys
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -13,13 +12,15 @@ args = {
     'project_id': 'service',
 }
 
+
 def main():
     # mn_uri = 'http://localhost:8081'
     my_laptop = 'c1b9eb8a-c83b-43d3-b7b8-8613f921dbe7'
     # mc = MidonetApi(mn_uri, 'admin', 'password')
     mc = MidonetApi(**args)
 
-    chain = mc.add_chain().name('tomohiko_11th_chain').tenant_id(my_laptop).create()
+    chain = mc.add_chain().name('tomohiko_11th_chain').tenant_id(my_laptop)\
+              .create()
     print('*** 5th chain id: ' + chain.get_id())
     rule = chain.add_rule()
     rule.type('snat')

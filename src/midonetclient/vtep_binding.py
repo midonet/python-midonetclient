@@ -15,6 +15,7 @@
 from midonetclient.resource_base import ResourceBase
 from midonetclient import vendor_media_type
 
+
 class VtepBinding(ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_VTEP_BINDING_JSON

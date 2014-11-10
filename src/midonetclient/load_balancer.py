@@ -18,6 +18,7 @@ from midonetclient.pool import Pool
 from midonetclient.resource_base import ResourceBase
 from midonetclient.vip import VIP
 
+
 class LoadBalancer(ResourceBase, AdminStateUpMixin):
     """The load balancer JSON model of the L4LB feature.
     """

@@ -18,6 +18,7 @@ from midonetclient.pool_member import PoolMember
 from midonetclient.resource_base import ResourceBase
 from midonetclient.vip import VIP
 
+
 class Pool(ResourceBase, AdminStateUpMixin):
     """The pool JSON model of the L4LB feature.
     """

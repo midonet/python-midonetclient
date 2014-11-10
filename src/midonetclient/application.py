@@ -19,7 +19,6 @@
 # @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 # @author: Artem Dmytrenko <art@midokura.com>, Midokura
 
-import os
 from midonetclient import vendor_media_type
 from midonetclient.ad_route import AdRoute
 from midonetclient.bgp import Bgp
@@ -45,6 +44,7 @@ from midonetclient.pool_member import PoolMember
 from midonetclient.health_monitor import HealthMonitor
 from midonetclient.pool_statistic import PoolStatistic
 from midonetclient.vtep import Vtep
+
 
 class Application(ResourceBase):
 
@@ -391,13 +391,13 @@ class Application(ResourceBase):
 
     def get_health_monitors(self, query):
         headers = {'Accept':
-                   vendor_media_type.APPLICATION_HEALTH_MONITOR_COLLECTION_JSON}
+            vendor_media_type.APPLICATION_HEALTH_MONITOR_COLLECTION_JSON}
         return self.get_children(self.dto['healthMonitors'],
                                  query, headers, HealthMonitor)
 
     def get_pool_statistics(self, query):
         headers = {'Accept':
-                   vendor_media_type.APPLICATION_POOL_STATISTIC_COLLECTION_JSON}
+            vendor_media_type.APPLICATION_POOL_STATISTIC_COLLECTION_JSON}
         return self.get_children(self.dto['poolStatistics'],
                                  query, headers, PoolStatistic)
 
@@ -412,11 +412,13 @@ class Application(ResourceBase):
                                         self.dto['vips'],
                                         self.get_vip_template(),
                                         id_)
+
     def get_pool(self, id_):
         return self._get_resource_by_id(Pool,
                                         self.dto['pools'],
                                         self.get_pool_template(),
                                         id_)
+
     def get_pool_member(self, id_):
         return self._get_resource_by_id(PoolMember,
                                         self.dto['poolMembers'],
@@ -428,11 +430,13 @@ class Application(ResourceBase):
                                         self.dto['healthMonitors'],
                                         self.get_health_monitor_template(),
                                         id_)
+
     def get_pool_statistic(self, id_):
         return self._get_resource_by_id(PoolStatistic,
                                         self.dto['poolStatistic'],
                                         self.get_pool_statistic_template(),
                                         id_)
+
     def delete_load_balancer(self, id_):
         return self._delete_resource_by_id(
             self.get_load_balancer_template(), id_)
@@ -490,4 +494,3 @@ class Application(ResourceBase):
     def delete_vtep(self, mgmt_ip):
         return self._delete_resource_by_ip_addr(self.get_vtep_template(),
                                                 mgmt_ip)
-

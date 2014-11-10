@@ -5,9 +5,9 @@
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
-# 
+#
 #     http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -24,6 +24,7 @@ MODULE_NAME = "midonetclient"
 # Prepend the directory which contains the module to `PYTHONPATH` temporarily.
 sys.path.insert(
     0, '/'.join([os.path.dirname(os.path.abspath(__file__)), SRC_DIR]))
+
 
 def _readme():
     with open("README") as f:
@@ -42,7 +43,7 @@ setup(name=MODULE_NAME,
           "Topic :: System :: Networking",
           "Topic :: System :: Shells",
           "Topic :: Utilities",
-          ],
+      ],
       keywords="MidoNet midonetclient python-midonetclient",
       author="Midokura Engineers",
       author_email="midonet-dev@midonet.org",
@@ -55,7 +56,7 @@ setup(name=MODULE_NAME,
           "httplib2",
           "readline",
           "webob",
-          ],
+      ],
       zip_safe=False,
       tests_require=["nose", "ddt"],
       test_suite="nose.collector",

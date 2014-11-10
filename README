@@ -38,7 +38,7 @@ Examples
 
     # Create a network
     net_id = "174a9db3-94e8-416e-8e48-0eabadfdf664"
-    input = {"id": net_id, 
+    input = {"id": net_id,
              "name": "tenant",
              "tenant_id": "tenant_id",
              "admin_state_up": True,
@@ -46,7 +46,7 @@ Examples
     output = client.create_network(input)
 
     # Create a subnet
-    subnet_id = "dc313de0-86ef-4aac-9781-5ad25232777a" 
+    subnet_id = "dc313de0-86ef-4aac-9781-5ad25232777a"
     input = {"id": subnet_id,
              "name": "tenant",
              "tenant_id": "tenant_id",

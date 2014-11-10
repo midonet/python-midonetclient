@@ -96,7 +96,7 @@ class VtepClientMixin(VtepUrlProviderMixin):
         self.client.delete(self.vtep_binding_url(vtep_id, port_name, vlan_id))
 
     @util.convert_case
-    def get_vtep_binding(self, binding, vtep_id):
+    def get_vtep_binding(self, binding, ip_addr):
         vlan_id = binding.split('_', 1)[0]
         port_name = binding.split('_', 1)[1]
         LOG.info("get_vtep_binding %r", ip_addr, port_name, vlan_id)
@@ -122,6 +122,6 @@ class VtepClientMixin(VtepUrlProviderMixin):
     @util.convert_case
     def get_vxlan_ports(self, port_id, filters=None, fields=None, sorts=None,
                         limit=None, marker=None, page_reverse=False):
-        LOG.info("get_vtep_bindings %r", ip_addr)
-        return self.client.get(self.vtep_bindings_url(ip_addr),
+        LOG.info("get_vxlan_ports %r", port_id)
+        return self.client.get(self.vxlan_ports_url(port_id),
                                mt.APPLICATION_VTEP_BINDING_COLLECTION_JSON)

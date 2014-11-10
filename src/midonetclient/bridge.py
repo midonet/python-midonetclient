@@ -73,7 +73,8 @@ class Bridge(ResourceBase, AdminStateUpMixin):
         ports = self.get_children(self.dto['ports'], query, headers, Port)
 
         vxlan_port = self.get_vxlan_port()
-        if vxlan_port: ports.append(vxlan_port)
+        if vxlan_port:
+            ports.append(vxlan_port)
 
         return ports
 
@@ -83,7 +84,8 @@ class Bridge(ResourceBase, AdminStateUpMixin):
            Returns a VxLan port if one is configured, or None otherwise.
         """
         vxlan_port_dto = self.dto['vxLanPort']
-        if not vxlan_port_dto: return None 
+        if not vxlan_port_dto:
+            return None
 
         vxlan_port = Port(vxlan_port_dto, {'uri': vxlan_port_dto}, self.auth)
         vxlan_port.get({'Accept': vendor_media_type.APPLICATION_PORT_JSON})
@@ -95,7 +97,7 @@ class Bridge(ResourceBase, AdminStateUpMixin):
         headers = {'Accept':
                    vendor_media_type.APPLICATION_PORT_COLLECTION_JSON}
         _, peer_ports = self.auth.do_request(self.dto['peerPorts'], 'GET',
-                                               headers=headers, query=query)
+                                             headers=headers, query=query)
         res = []
         for pp in peer_ports:
             res.append(Port(self.dto['ports'], pp, self.auth))

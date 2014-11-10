@@ -598,19 +598,19 @@ if __name__ == '__main__':
     print '-------- Tenants ------'
     tenants = api.get_tenants(query={})
     for t in tenants:
-        print 'id: ',  t.get_id()
+        print 'id: ', t.get_id()
         print 'name: ', t.get_name()
 
         print '----- Tenant by ID ------'
         t = api.get_tenant(t.get_id())
-        print 'id: ',  t.get_id()
+        print 'id: ', t.get_id()
         print 'name: ', t.get_name()
 
     # Tenant routers
     print '-------- Tenant Routers ------'
     for t in tenants:
         for r in t.get_routers():
-            print 'id: ',  r.get_id()
+            print 'id: ', r.get_id()
 
     # Routers/Ports
 
@@ -723,7 +723,7 @@ if __name__ == '__main__':
     print '-------- Tenant Bridges ------'
     for t in tenants:
         for b in t.get_bridges():
-            print 'id: ',  b.get_id()
+            print 'id: ', b.get_id()
 
     # Bridges/Ports
     bp1 = bridge1.add_port().create()
@@ -779,7 +779,7 @@ if __name__ == '__main__':
     print '-------- Tenant Chains -----'
     for t in tenants:
         for c in t.get_chains():
-            print 'id: ',  c.get_id()
+            print 'id: ', c.get_id()
 
     rule1 = chain1.add_rule().type('accept').create()
     rule2 = chain1.add_rule().type('reject').create()

@@ -2,7 +2,6 @@
 
 from midonetclient.api import MidonetApi
 import logging
-import sys
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -13,15 +12,18 @@ args = {
     'project_id': 'service',
 }
 
+
 def main():
-    my_laptop = 'c1b9eb8a-c83b-43d3-b7b8-8613f921dbe7'
     mc = MidonetApi(**args)
 
-    vtep_management_ip = '119.15.112.22'
-    vtep_management_port = '6633'
+    # vtep_management_ip = '119.15.112.22'
+    # vtep_management_port = '6633'
 
     # Create a new VTEP
-    # vtep = mc.add_vtep().name('My VTEP').management_ip(vtep_management_ip).management_port(vtep_management_port).create()
+    # vtep = mc.add_vtep().name('My VTEP')\
+    #                     .management_ip(vtep_management_ip)\
+    #                     .management_port(vtep_management_port)\
+    #                     .create()
     # print 'Created a VTEP.'
 
     # list VTEPs

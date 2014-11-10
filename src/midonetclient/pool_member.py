@@ -16,6 +16,7 @@ from midonetclient import vendor_media_type
 from midonetclient.admin_state_up_mixin import AdminStateUpMixin
 from midonetclient.resource_base import ResourceBase
 
+
 class PoolMember(ResourceBase, AdminStateUpMixin):
     """The pool member JSON model of the L4LB feature
     """
