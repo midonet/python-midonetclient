@@ -1,17 +1,21 @@
 Midonet API client library for Python applications
------------------------------------------------------------------------------
+==================================================
 Overview and pre-requisites
 
     This is the client library which can be used by Python applications to interact with MidoNet, network virtualization platform.
     MidoNet provides scalable distributed network services for OpenStack. In order to use this client you must have MidoNet configured and running.
 
-Installation and Configuration
+How to Install
+--------------
 
-    Please contact Midokura at info@midokura.com for information on
-    installing and setting up MidoNet.  For more info
-    about MidoNet please go to http://midokura.com/midonet/
+Run the following command:
+
+::
+
+    $ sudo python ./setup.py
 
 Package dependencies
+--------------------
 
     Standard library
         logging
@@ -25,7 +29,7 @@ Package dependencies
         httplib2
 
 Examples
-
+--------
 
     # Instantiate a client.  Project ID is required when the API
     # is integrated with Keystone.

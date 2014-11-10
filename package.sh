@@ -79,10 +79,10 @@ echo "DEB: version=$deb_version"
 FPM_BASE_ARGS=$(cat <<EOF
 --name 'python-midonetclient' \
 --architecture 'noarch' \
---license '2014, Midokura' \
---vendor 'Midokura' \
+--license 'Apache License, Version 2.0' \
+--vendor 'MidoNet' \
 --maintainer "Midokura" \
---url 'http://midokura.com' \
+--url 'http://midonet.org' \
 --description 'Python client library for MidoNet API' \
 -d 'python-webob' -d 'python-eventlet' -d 'python-httplib2' \
 -s dir
