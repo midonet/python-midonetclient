@@ -14,15 +14,12 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
-from midonetclient.resource_base import ResourceBase
+from midonetclient import resource_base
 
 
-class TunnelZoneHost(ResourceBase):
+class TunnelZoneHost(resource_base.ResourceBase):
 
     def __init__(self, uri, dto, auth, mt):
         super(TunnelZoneHost, self).__init__(uri, dto, auth)

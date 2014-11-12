@@ -14,19 +14,17 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
+from midonetclient import bridge
+from midonetclient import chain
+from midonetclient import port_group
+from midonetclient import resource_base
+from midonetclient import router
 from midonetclient import vendor_media_type
-from midonetclient.bridge import Bridge
-from midonetclient.chain import Chain
-from midonetclient.port_group import PortGroup
-from midonetclient.resource_base import ResourceBase
-from midonetclient.router import Router
 
 
-class Tenant(ResourceBase):
+class Tenant(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_TENANT_JSON
 
@@ -50,20 +48,23 @@ class Tenant(ResourceBase):
     def get_bridges(self, query=None):
         headers = {'Accept':
                    vendor_media_type.APPLICATION_BRIDGE_COLLECTION_JSON}
-        return self.get_children(self.dto['bridges'], query, headers, Bridge)
+        return self.get_children(self.dto['bridges'], query, headers,
+                                 bridge.Bridge)
 
     def get_chains(self, query=None):
         headers = {'Accept':
                    vendor_media_type.APPLICATION_CHAIN_COLLECTION_JSON}
-        return self.get_children(self.dto['chains'], query, headers, Chain)
+        return self.get_children(self.dto['chains'], query, headers,
+                                 chain.Chain)
 
     def get_port_groups(self, query=None):
         headers = {'Accept':
                    vendor_media_type.APPLICATION_PORTGROUP_COLLECTION_JSON}
         return self.get_children(self.dto['portGroups'], query, headers,
-                                 PortGroup)
+                                 port_group.PortGroup)
 
     def get_routers(self, query=None):
         headers = {'Accept':
                    vendor_media_type.APPLICATION_ROUTER_COLLECTION_JSON}
-        return self.get_children(self.dto['routers'], query, headers, Router)
+        return self.get_children(self.dto['routers'], query, headers,
+                                 router.Router)

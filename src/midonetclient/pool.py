@@ -12,14 +12,15 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from midonetclient import admin_state_up_mixin
+from midonetclient import pool_member
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
-from midonetclient.admin_state_up_mixin import AdminStateUpMixin
-from midonetclient.pool_member import PoolMember
-from midonetclient.resource_base import ResourceBase
-from midonetclient.vip import VIP
+from midonetclient import vip
 
 
-class Pool(ResourceBase, AdminStateUpMixin):
+class Pool(resource_base.ResourceBase,
+           admin_state_up_mixin.AdminStateUpMixin):
     """The pool JSON model of the L4LB feature.
     """
 
@@ -48,7 +49,8 @@ class Pool(ResourceBase, AdminStateUpMixin):
                    vendor_media_type.APPLICATION_POOL_MEMBER_COLLECTION_JSON}
         _, members = self.auth.do_request(self.dto['poolMembers'], 'GET',
                                           headers=headers, query=query)
-        members = [PoolMember(self.dto['poolMembers'], m, self.auth)
+        members = [pool_member.PoolMember(self.dto['poolMembers'], m,
+                                          self.auth)
                    for m in members]
         return members
 
@@ -57,7 +59,7 @@ class Pool(ResourceBase, AdminStateUpMixin):
                    vendor_media_type.APPLICATION_VIP_COLLECTION_JSON}
         _, vips = self.auth.do_request(self.dto['vips'], 'GET',
                                        headers=headers, query=query)
-        vips = [VIP(self.dto['vips'], v, self.auth) for v in vips]
+        vips = [vip.VIP(self.dto['vips'], v, self.auth) for v in vips]
         return vips
 
     def load_balancer_id(self, load_balancer_id):
@@ -77,7 +79,7 @@ class Pool(ResourceBase, AdminStateUpMixin):
         return self
 
     def add_pool_member(self):
-        return PoolMember(self.dto['poolMembers'], {}, self.auth)
+        return pool_member.PoolMember(self.dto['poolMembers'], {}, self.auth)
 
     def add_vip(self):
-        return VIP(self.dto['vips'], {}, self.auth)
+        return vip.VIP(self.dto['vips'], {}, self.auth)

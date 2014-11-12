@@ -12,15 +12,11 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
-# @author: Artem Dmytrenko <art@midokura.com>, Midokura
 
 import logging
 
+from midonetclient import application
 from midonetclient import auth_lib
-from midonetclient.application import Application
 from midonetclient import exc
 
 LOG = logging.getLogger(__name__)
@@ -528,7 +524,8 @@ class MidonetApi(object):
 
     def _ensure_application(self):
         if self.app is None:
-            self.app = Application(None, {'uri': self.base_uri}, self.auth)
+            self.app = application.Application(None, {'uri': self.base_uri},
+                                               self.auth)
             try:
                 self.app.get()
             except exc.MidoApiConnectionRefused:
@@ -538,8 +535,8 @@ class MidonetApi(object):
 # just for testing
 if __name__ == '__main__':
 
-    import uuid
     import sys
+    import uuid
 
     if len(sys.argv) < 4:
         print >> sys.stderr, "Functional testing with MN API"

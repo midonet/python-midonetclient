@@ -14,22 +14,20 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
-
-import json
-import logging
-import urllib
 
 import httplib2
-import webob
-from socket import error as socket_error
+import json
+import logging
+
 from midonetclient import exc
 
+import socket
+import urllib
+import webob
 
-# TODO: lots of duplicates with auth_lib => merge both ?
+
+# TODO(hugo): lots of duplicates with auth_lib => merge both ?
 
 LOG = logging.getLogger(__name__)
 
@@ -73,7 +71,7 @@ def do_request(uri, method, body=None, query=None, headers=None):
     try:
         response, content = httplib2.Http().request(uri, method, data,
                                                     headers=headers)
-    except socket_error as serr:
+    except socket.error as serr:
         if serr[1] == "ECONNREFUSED":
             raise exc.MidoApiConnectionRefused()
         raise
@@ -104,7 +102,7 @@ def do_upload(uri, body=None, query=None, headers=None):
     try:
         response, content = httplib2.Http().request(uri, 'POST', body,
                                                     headers=headers)
-    except socket_error as serr:
+    except socket.error as serr:
         if serr[1] == "ECONNREFUSED":
             raise exc.MidoApiConnectionRefused()
         raise

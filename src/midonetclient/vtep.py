@@ -13,12 +13,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from midonetclient.resource_base import ResourceBase
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
-from midonetclient.vtep_binding import VtepBinding
+from midonetclient import vtep_binding
 
 
-class Vtep(ResourceBase):
+class Vtep(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_VTEP_JSON
 
@@ -77,9 +77,9 @@ class Vtep(ResourceBase):
         return self.get_children(self.dto['bindings'],
                                  query,
                                  headers,
-                                 VtepBinding)
+                                 vtep_binding.VtepBinding)
 
     def add_binding(self):
-        return VtepBinding(self.dto['bindings'],
+        return vtep_binding.VtepBinding(self.dto['bindings'],
                            {'mgmtIp': self.get_management_ip()},
                            self.auth)

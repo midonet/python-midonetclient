@@ -14,16 +14,13 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
-from midonetclient.resource_base import ResourceBase
 
 
-class DhcpHost(ResourceBase):
+class DhcpHost(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_DHCP_HOST_JSON
 

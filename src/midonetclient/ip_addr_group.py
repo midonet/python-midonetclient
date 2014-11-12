@@ -15,17 +15,15 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
+from midonetclient import ip_addr_group_addr
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
 from vendor_media_type import APPLICATION_IP_ADDR_GROUP_ADDR_COLLECTION_JSON
-from midonetclient.resource_base import ResourceBase
-from midonetclient.ip_addr_group_addr import IpAddrGroupAddr
 
 
-class IpAddrGroup(ResourceBase):
+class IpAddrGroup(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_IP_ADDR_GROUP_JSON
 
@@ -49,10 +47,12 @@ class IpAddrGroup(ResourceBase):
     def get_addrs(self, query=None):
         headers = {'Accept': APPLICATION_IP_ADDR_GROUP_ADDR_COLLECTION_JSON}
         return self.get_children(self.dto['addrs'], query, headers,
-                                 IpAddrGroupAddr)
+                                 ip_addr_group_addr.IpAddrGroupAddr)
 
     def add_ipv4_addr(self):
-        return IpAddrGroupAddr(self.dto['addrs'], {'version': 4}, self.auth)
+        return ip_addr_group_addr.IpAddrGroupAddr(self.dto['addrs'],
+                                                  {'version': 4}, self.auth)
 
     def add_ipv6_addr(self):
-        return IpAddrGroupAddr(self.dto['addrs'], {'version': 6}, self.auth)
+        return ip_addr_group_addr.IpAddrGroupAddr(self.dto['addrs'],
+                                                  {'version': 6}, self.auth)

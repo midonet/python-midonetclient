@@ -14,13 +14,12 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
 
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
-from midonetclient.resource_base import ResourceBase
 
 
-class HostVersion(ResourceBase):
+class HostVersion(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_HOST_VERSION_JSON
 

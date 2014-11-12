@@ -14,14 +14,13 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 import logging
 
+from midonetclient.neutron import bridge
+from midonetclient.neutron import router
 from midonetclient import util
 from midonetclient import vendor_media_type as mt
-from midonetclient.neutron import bridge, router
 
 LOG = logging.getLogger(__name__)
 

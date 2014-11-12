@@ -14,11 +14,9 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
-from midonetclient import url_provider
 from midonetclient.neutron import media_type
+from midonetclient import url_provider
 
 
 class NeutronUrlProviderMixin(url_provider.UrlProviderMixin):

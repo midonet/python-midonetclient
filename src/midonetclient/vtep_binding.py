@@ -12,11 +12,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from midonetclient.resource_base import ResourceBase
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
 
 
-class VtepBinding(ResourceBase):
+class VtepBinding(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_VTEP_BINDING_JSON
 

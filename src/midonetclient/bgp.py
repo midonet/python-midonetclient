@@ -14,17 +14,14 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
+from midonetclient import ad_route
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
-from midonetclient.ad_route import AdRoute
-from midonetclient.resource_base import ResourceBase
 
 
-class Bgp(ResourceBase):
+class Bgp(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_BGP_JSON
 
@@ -60,7 +57,7 @@ class Bgp(ResourceBase):
         headers = {'Accept':
                    vendor_media_type.APPLICATION_AD_ROUTE_COLLECTION_JSON}
         return self.get_children(self.dto['adRoutes'], query, headers,
-                                 AdRoute)
+                                 ad_route.AdRoute)
 
     def add_ad_route(self):
-        return AdRoute(self.dto['adRoutes'], {}, self.auth)
+        return ad_route.AdRoute(self.dto['adRoutes'], {}, self.auth)

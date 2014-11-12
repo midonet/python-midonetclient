@@ -12,13 +12,14 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from midonetclient import admin_state_up_mixin
+from midonetclient import pool
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
-from midonetclient.admin_state_up_mixin import AdminStateUpMixin
-from midonetclient.pool import Pool
-from midonetclient.resource_base import ResourceBase
 
 
-class HealthMonitor(ResourceBase, AdminStateUpMixin):
+class HealthMonitor(resource_base.ResourceBase,
+                    admin_state_up_mixin.AdminStateUpMixin):
     """The health monitor JSON model of L4LB feature
     """
 
@@ -50,7 +51,7 @@ class HealthMonitor(ResourceBase, AdminStateUpMixin):
                    vendor_media_type.APPLICATION_POOL_COLLECTION_JSON}
         _, pools = self.auth.do_request(self.dto['pools'], 'GET',
                                         headers=headers, query=query)
-        pools = [Pool(self.dto['pools'], p, self.auth) for p in pools]
+        pools = [pool.Pool(self.dto['pools'], p, self.auth) for p in pools]
         return pools
 
     def delay(self, delay):
@@ -74,4 +75,4 @@ class HealthMonitor(ResourceBase, AdminStateUpMixin):
         return self
 
     def add_pool(self):
-        return Pool(self.dto['pools'], {}, self.auth)
+        return pool.Pool(self.dto['pools'], {}, self.auth)
