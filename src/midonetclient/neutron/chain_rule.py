@@ -14,12 +14,11 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 import logging
 
-from midonetclient import url_provider, util
+from midonetclient import url_provider
+from midonetclient import util
 from midonetclient import vendor_media_type as mt
 
 LOG = logging.getLogger(__name__)

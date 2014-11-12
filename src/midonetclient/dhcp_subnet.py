@@ -14,17 +14,14 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
+from midonetclient import dhcp_host
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
-from midonetclient.dhcp_host import DhcpHost
-from midonetclient.resource_base import ResourceBase
 
 
-class DhcpSubnet(ResourceBase):
+class DhcpSubnet(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_DHCP_SUBNET_JSON
 
@@ -92,7 +89,7 @@ class DhcpSubnet(ResourceBase):
         headers = {'Accept':
                    vendor_media_type.APPLICATION_DHCP_HOST_COLLECTION_JSON}
         return self.get_children(self.dto['hosts'], query, headers,
-                                 DhcpHost)
+                                 dhcp_host.DhcpHost)
 
     def get_dhcp_host(self, ip_addr, mac):
         """
@@ -104,4 +101,4 @@ class DhcpSubnet(ResourceBase):
         return None
 
     def add_dhcp_host(self):
-        return DhcpHost(self.dto['hosts'], {}, self.auth)
+        return dhcp_host.DhcpHost(self.dto['hosts'], {}, self.auth)

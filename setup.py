@@ -15,8 +15,8 @@
 # under the License.
 
 import os
+import setuptools
 import sys
-from setuptools import setup, find_packages
 
 SRC_DIR = "src"
 MODULE_NAME = "midonetclient"
@@ -30,7 +30,7 @@ def _readme():
     with open("README") as f:
         return f.read()
 
-setup(name=MODULE_NAME,
+setuptools.setup(name=MODULE_NAME,
       version=__import__(MODULE_NAME).__version__,
       description="Midonet API client library for Python applications",
       long_description=_readme(),
@@ -50,7 +50,7 @@ setup(name=MODULE_NAME,
       url="https://github.com/midonet/python-midonetclient",
       include_package_data=True,
       package_dir={"": SRC_DIR},
-      packages=find_packages(SRC_DIR, exclude=["tests"]),
+      packages=setuptools.find_packages(SRC_DIR, exclude=["tests"]),
       scripts=["src/bin/midonet-cli"],
       install_requires=[
           "httplib2",

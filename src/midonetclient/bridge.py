@@ -14,20 +14,18 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
+from midonetclient import admin_state_up_mixin
+from midonetclient import dhcp_subnet
+from midonetclient import port
 from midonetclient import port_type
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
-from midonetclient.dhcp_subnet import DhcpSubnet
-from midonetclient.port import Port
-from midonetclient.resource_base import ResourceBase
-from midonetclient.admin_state_up_mixin import AdminStateUpMixin
 
 
-class Bridge(ResourceBase, AdminStateUpMixin):
+class Bridge(resource_base.ResourceBase,
+             admin_state_up_mixin.AdminStateUpMixin):
 
     media_type = vendor_media_type.APPLICATION_BRIDGE_JSON
 
@@ -70,7 +68,7 @@ class Bridge(ResourceBase, AdminStateUpMixin):
             query = {}
         headers = {'Accept':
                    vendor_media_type.APPLICATION_PORT_COLLECTION_JSON}
-        ports = self.get_children(self.dto['ports'], query, headers, Port)
+        ports = self.get_children(self.dto['ports'], query, headers, port.Port)
 
         vxlan_port = self.get_vxlan_port()
         if vxlan_port:
@@ -87,7 +85,8 @@ class Bridge(ResourceBase, AdminStateUpMixin):
         if not vxlan_port_dto:
             return None
 
-        vxlan_port = Port(vxlan_port_dto, {'uri': vxlan_port_dto}, self.auth)
+        vxlan_port = port.Port(vxlan_port_dto, {'uri': vxlan_port_dto},
+                               self.auth)
         vxlan_port.get({'Accept': vendor_media_type.APPLICATION_PORT_JSON})
         return vxlan_port
 
@@ -100,7 +99,7 @@ class Bridge(ResourceBase, AdminStateUpMixin):
                                              headers=headers, query=query)
         res = []
         for pp in peer_ports:
-            res.append(Port(self.dto['ports'], pp, self.auth))
+            res.append(port.Port(self.dto['ports'], pp, self.auth))
         return res
 
     def get_dhcp_subnets(self):
@@ -108,7 +107,7 @@ class Bridge(ResourceBase, AdminStateUpMixin):
         headers = {'Accept':
                    vendor_media_type.APPLICATION_DHCP_SUBNET_COLLECTION_JSON}
         return self.get_children(self.dto['dhcpSubnets'], query, headers,
-                                 DhcpSubnet)
+                                 dhcp_subnet.DhcpSubnet)
 
     def get_dhcp_subnet(self, subnet_str):
         """
@@ -123,8 +122,8 @@ class Bridge(ResourceBase, AdminStateUpMixin):
         return None
 
     def add_port(self):
-        return Port(self.dto['ports'],
+        return port.Port(self.dto['ports'],
                     {'type': port_type.BRIDGE}, self.auth)
 
     def add_dhcp_subnet(self):
-        return DhcpSubnet(self.dto['dhcpSubnets'], {}, self.auth)
+        return dhcp_subnet.DhcpSubnet(self.dto['dhcpSubnets'], {}, self.auth)

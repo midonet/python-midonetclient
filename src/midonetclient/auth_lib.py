@@ -14,8 +14,6 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
 import base64
@@ -89,7 +87,7 @@ class Auth:
         '''
         header['X-Auth-Token'] = self.get_token(force)
 
-    # This is used by ResourceBase, calls api_lib
+    # This is used by resource_base.ResourceBase, calls api_lib
     def do_request(self, uri, method, body=None, query=None, headers=None):
         ''' Wrapper for api_lib.do_request that includes auth logic.
         '''

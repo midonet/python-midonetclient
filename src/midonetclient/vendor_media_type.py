@@ -14,10 +14,6 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
-# @author: Alex Bikfalvi <alex.bikfalvi@midokura.com>, Midokura
 
 APPLICATION_OCTET_STREAM = "application/octet-stream"
 APPLICATION_JSON_V5 = "application/vnd.org.midonet.Application-v5+json"

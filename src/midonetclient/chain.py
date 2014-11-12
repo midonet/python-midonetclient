@@ -14,17 +14,14 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
-from midonetclient.resource_base import ResourceBase
-from midonetclient.rule import Rule
+from midonetclient import resource_base
+from midonetclient import rule
 from midonetclient import vendor_media_type
 
 
-class Chain(ResourceBase):
+class Chain(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_CHAIN_JSON
 
@@ -51,7 +48,7 @@ class Chain(ResourceBase):
                    vendor_media_type.APPLICATION_RULE_COLLECTION_JSON}
 
         return self.get_children(self.dto['rules'], query, headers,
-                                 Rule)
+                                 rule.Rule)
 
     def add_rule(self):
-        return Rule(self.dto['rules'], {}, self.auth)
+        return rule.Rule(self.dto['rules'], {}, self.auth)

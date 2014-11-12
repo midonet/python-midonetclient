@@ -14,20 +14,18 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
+from midonetclient import admin_state_up_mixin
+from midonetclient import port
 from midonetclient import port_type
+from midonetclient import resource_base
+from midonetclient import route
 from midonetclient import vendor_media_type
-from midonetclient.port import Port
-from midonetclient.resource_base import ResourceBase
-from midonetclient.route import Route
-from midonetclient.admin_state_up_mixin import AdminStateUpMixin
 
 
-class Router(ResourceBase, AdminStateUpMixin):
+class Router(resource_base.ResourceBase,
+             admin_state_up_mixin.AdminStateUpMixin):
 
     media_type = vendor_media_type.APPLICATION_ROUTER_JSON
 
@@ -79,12 +77,13 @@ class Router(ResourceBase, AdminStateUpMixin):
     def get_ports(self, query=None):
         headers = {'Accept':
                    vendor_media_type.APPLICATION_PORT_COLLECTION_JSON}
-        return self.get_children(self.dto['ports'], query, headers, Port)
+        return self.get_children(self.dto['ports'], query, headers, port.Port)
 
     def get_routes(self, query=None):
         headers = {'Accept':
                    vendor_media_type.APPLICATION_ROUTE_COLLECTION_JSON}
-        return self.get_children(self.dto['routes'], query, headers, Route)
+        return self.get_children(self.dto['routes'], query, headers,
+                                 route.Route)
 
     def get_peer_ports(self, query=None):
         if query is None:
@@ -95,12 +94,12 @@ class Router(ResourceBase, AdminStateUpMixin):
                                                headers=headers, query=query)
         res = []
         for pp in peer_ports:
-            res.append(Port(self.dto['ports'], pp, self.auth))
+            res.append(port.Port(self.dto['ports'], pp, self.auth))
         return res
 
     def add_port(self):
-        return Port(self.dto['ports'],
+        return port.Port(self.dto['ports'],
                     {'type': port_type.ROUTER}, self.auth)
 
     def add_route(self):
-        return Route(self.dto['routes'], {}, self.auth)
+        return route.Route(self.dto['routes'], {}, self.auth)

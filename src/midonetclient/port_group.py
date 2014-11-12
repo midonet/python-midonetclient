@@ -14,18 +14,15 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
+from midonetclient import port_group_port
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
 from vendor_media_type import APPLICATION_PORTGROUP_PORT_COLLECTION_JSON
-from midonetclient.port_group_port import PortGroupPort
-from midonetclient.resource_base import ResourceBase
 
 
-class PortGroup(ResourceBase):
+class PortGroup(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_PORTGROUP_JSON
 
@@ -56,7 +53,7 @@ class PortGroup(ResourceBase):
     def get_ports(self, query=None):
         headers = {'Accept': APPLICATION_PORTGROUP_PORT_COLLECTION_JSON}
         return self.get_children(self.dto['ports'], query, headers,
-                                 PortGroupPort)
+                                 port_group_port.PortGroupPort)
 
     def add_port_group_port(self):
-        return PortGroupPort(self.dto['ports'], {}, self.auth)
+        return port_group_port.PortGroupPort(self.dto['ports'], {}, self.auth)

@@ -14,17 +14,14 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Tomoe Sugihara <tomoe@midokura.com>, Midokura
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
 
+from midonetclient import resource_base
+from midonetclient import tunnel_zone_host
 from midonetclient import vendor_media_type
-from midonetclient.resource_base import ResourceBase
-from midonetclient.tunnel_zone_host import TunnelZoneHost
 
 
-class TunnelZone(ResourceBase):
+class TunnelZone(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_TUNNEL_ZONE_JSON
 
@@ -79,10 +76,10 @@ class TunnelZone(ResourceBase):
         headers = {'Accept': self._get_tunnel_zone_host_list_media_type()}
         query = {}
         return self.get_children(self.dto['hosts'], query, headers,
-                                 TunnelZoneHost,
+                                 tunnel_zone_host.TunnelZoneHost,
                                  [self._get_tunnel_zone_host_media_type()])
 
     def add_tunnel_zone_host(self):
-        return TunnelZoneHost(self.dto['hosts'], {},
+        return tunnel_zone_host.TunnelZoneHost(self.dto['hosts'], {},
                               self.auth,
                               self._get_tunnel_zone_host_media_type())

@@ -14,10 +14,9 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# @author: Ryu Ishimoto <ryu@midokura.com>, Midokura
 
-from ddt import ddt, data
+import ddt
+from ddt import data
 import unittest
 
 from midonetclient import util
@@ -35,7 +34,7 @@ class TestUtil(unittest.TestCase):
     )
     def test_convert_camel_to_snake(self, data):
         input, expected = data
-        self.assertEquals(expected, util.camel_to_snake(input))
+        self.assertEqual(expected, util.camel_to_snake(input))
 
     @data(
         ("foo", "foo"),
@@ -46,7 +45,7 @@ class TestUtil(unittest.TestCase):
     )
     def test_convert_snake_to_camel(self, data):
         input, expected = data
-        self.assertEquals(expected, util.snake_to_camel(input))
+        self.assertEqual(expected, util.snake_to_camel(input))
 
     @data(
         (None, None),

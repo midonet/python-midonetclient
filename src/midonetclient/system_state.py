@@ -17,11 +17,11 @@
 #
 
 
+from midonetclient import resource_base
 from midonetclient import vendor_media_type
-from midonetclient.resource_base import ResourceBase
 
 
-class SystemState(ResourceBase):
+class SystemState(resource_base.ResourceBase):
 
     media_type = vendor_media_type.APPLICATION_SYSTEM_STATE_JSON
 
