@@ -40,6 +40,17 @@ while getopts t OPT; do
     esac
 done
 
+function set_timestamp_package_vals() {
+    local version=$1
+
+    pre_release_tag=$(date -u '+%Y%m%d%H%M')
+
+    rpm_version=$version
+    rpm_revision="0".$pre_release_tag
+
+    deb_version=$version~$pre_release_tag
+}
+
 # Get version tag from command line or defaults to use git describe
 version_tag=$1
 if [ "$version_tag" == "" ]; then
@@ -51,37 +62,45 @@ if [[ "$version_tag" =~ v([0-9.]*)$ ]]; then
     echo "Packaging official release: $version_tag"
     version=${BASH_REMATCH[1]}
 
-    rpm_version=$version
-    rpm_revision=1
+    if [ "$USE_TIMESTAMP" == "yes" ]; then
+        set_timestamp_package_vals $version
+    else
+        rpm_version=$version
+        rpm_revision=1
 
-    deb_version=$version
+        deb_version=$version
+    fi
 
-elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+)$ ]]; then
+elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+)$ ]] && [ "$USE_TIMESTAMP" != "yes" ]; then
     # For RC packages, e.g. v1.8.0-rc1
     echo "Producing RC packages for " $version_tag
     version=${BASH_REMATCH[1]}
     rc_tag=${BASH_REMATCH[2]}
 
-    rpm_version=$version
-    rpm_revision="0."$rc_tag
+    if [ "$USE_TIMESTAMP" == "yes" ]; then
+        set_timestamp_package_vals $version
+    else
+        rpm_version=$version
+        rpm_revision="0."$rc_tag
 
-    deb_version=$version~$rc_tag
+        deb_version=$version~$rc_tag
+    fi
 
-elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+.*)$ ]]; then
+elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+.*)$ ]] || [ "$USE_TIMESTAMP" == "yes" ]; then
     # For unstable packages, e.g.v1.8.0-rc0-4-g994371d with git describe --tags
     echo Producing unstable packages for tag: $version_tag
     version=${BASH_REMATCH[1]}
 
     if [ "$USE_TIMESTAMP" == "yes" ]; then
-        pre_release_tag=$(date '+%Y%m%d%H%M')
+        set_timestamp_package_vals $version
     else
         pre_release_tag=$(echo ${BASH_REMATCH[2]} | sed -e 's/-/./g')
+
+        rpm_version=$version
+        rpm_revision="0".$pre_release_tag
+
+        deb_version=$version~$pre_release_tag
     fi
-
-    rpm_version=$version
-    rpm_revision="0".$pre_release_tag
-
-    deb_version=$version~$pre_release_tag
 
 else
     echo "Aborted. invalid version tag. $version_tag"
