@@ -3,6 +3,10 @@
 # This script generates RPM and debian packages.
 #
 # Usage: ./package.sh [VERSION_TAG]
+# Usage: ./package.sh [-t] [VERSION_TAG]
+#
+#
+#   -t: use timestamp based package name for unstable packges.
 #
 #   VERSION_TAG: Tag to determine version and revision string for
 #                deb and RPM packages
@@ -26,6 +30,15 @@
 #   * ronn: a tool to produce man pages from markdown
 
 set -e
+
+while getopts t OPT; do
+    case "$OPT" in
+      t)
+          USE_TIMESTAMP=yes
+          shift
+          ;;
+    esac
+done
 
 # Get version tag from command line or defaults to use git describe
 version_tag=$1
@@ -60,7 +73,12 @@ elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+.*)$ ]]; then
     # For unstable packages, e.g.v1.8.0-rc0-4-g994371d with git describe --tags
     echo Producing unstable packages for tag: $version_tag
     version=${BASH_REMATCH[1]}
-    pre_release_tag=$(echo ${BASH_REMATCH[2]} | sed -e 's/-/./g')
+
+    if [ "$USE_TIMESTAMP" == "yes" ]; then
+        pre_release_tag=$(date '+%Y%m%d%H%M')
+    else
+        pre_release_tag=$(echo ${BASH_REMATCH[2]} | sed -e 's/-/./g')
+    fi
 
     rpm_version=$version
     rpm_revision="0".$pre_release_tag
