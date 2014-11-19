@@ -39,7 +39,7 @@ if [[ "$version_tag" =~ v([0-9.]*)$ ]]; then
     version=${BASH_REMATCH[1]}
 
     rpm_version=$version
-    rpm_revision=1.0
+    rpm_revision=1
 
     deb_version=$version
     deb_revision=1
@@ -51,7 +51,7 @@ elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+)$ ]]; then
     rc_tag=${BASH_REMATCH[2]}
 
     rpm_version=$version
-    rpm_revision=$rc_tag
+    rpm_revision="0."$rc_tag
 
     deb_version=$version~$rc_tag
     deb_revision=1
@@ -63,7 +63,7 @@ elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+.*)$ ]]; then
     pre_release_tag=$(echo ${BASH_REMATCH[2]} | sed -e 's/-/./g')
 
     rpm_version=$version
-    rpm_revision=$pre_release_tag
+    rpm_revision="0".$pre_release_tag
 
     deb_version=$version~$pre_release_tag
     deb_revision=1
