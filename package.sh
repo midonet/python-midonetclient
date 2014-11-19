@@ -55,7 +55,6 @@ if [[ "$version_tag" =~ v([0-9.]*)$ ]]; then
     rpm_revision=1
 
     deb_version=$version
-    deb_revision=1
 
 elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+)$ ]]; then
     # For RC packages, e.g. v1.8.0-rc1
@@ -67,7 +66,6 @@ elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+)$ ]]; then
     rpm_revision="0."$rc_tag
 
     deb_version=$version~$rc_tag
-    deb_revision=1
 
 elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+.*)$ ]]; then
     # For unstable packages, e.g.v1.8.0-rc0-4-g994371d with git describe --tags
@@ -84,7 +82,6 @@ elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+.*)$ ]]; then
     rpm_revision="0".$pre_release_tag
 
     deb_version=$version~$pre_release_tag
-    deb_revision=1
 
 else
     echo "Aborted. invalid version tag. $version_tag"
@@ -94,7 +91,7 @@ fi
 
 echo "Packaging with the following info"
 echo "RPM: version=$rpm_version, revision=$rpm_revision"
-echo "DEB: version=$deb_version, revision=$deb_revision"
+echo "DEB: version=$deb_version"
 
 ## Common args for rpm and deb
 FPM_BASE_ARGS=$(cat <<EOF
@@ -153,7 +150,6 @@ function package_deb() {
     DEB_ARGS="$DEB_ARGS -v $deb_version"
     DEB_ARGS="$DEB_ARGS -C build/deb"
     DEB_ARGS="$DEB_ARGS --deb-priority optional"
-    DEB_ARGS="$DEB_ARGS --iteration $deb_revision"
 
     eval fpm $FPM_BASE_ARGS $DEB_ARGS -t deb .
 }
