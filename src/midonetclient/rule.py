@@ -147,6 +147,9 @@ class Rule(resource_base.ResourceBase):
     def get_position(self):
         return self.dto['position']
 
+    def get_meter(self):
+        return self.dto['meterName']
+
     def get_tp_src(self):
         return self.dto['tpSrc']
 
@@ -228,6 +231,10 @@ class Rule(resource_base.ResourceBase):
 
     def position(self, position):
         self.dto['position'] = position
+        return self
+
+    def meter(self, meter):
+        self.dto['meterName'] = meter
         return self
 
     def dl_type(self, dl_type):

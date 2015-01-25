@@ -1853,6 +1853,10 @@ class Rule(Condition):
                                            'return': 'return'},
                                getter = 'get_flow_action',
                                setter = 'flow_action'))
+        self.put_attr(SingleAttr(name = 'meter',
+                                 value_type = StringType(),
+                                 getter = 'get_meter',
+                                 setter = 'meter'))
         self.put_attr(SingleAttr(name = 'jump-to',
                                  value_type = ObjectRef('chain'),
                                  getter = 'get_jump_chain_id',
