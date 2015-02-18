@@ -25,6 +25,7 @@ from shlex import split as shsplit
 from webob import exc
 
 from midonetclient.api import MidonetApi
+from midonetclient.port_type import BRIDGE, VXLAN
 
 ################################################################################
 # Utilities
@@ -1841,6 +1842,7 @@ class Rule(Condition):
                                            'jump': 'jump',
                                            'reject': 'reject',
                                            'return': 'return',
+                                           'trace': 'trace',
                                            'dnat': 'dnat',
                                            'snat': 'snat',
                                            'rev_dnat': 'rev_dnat',
@@ -1853,10 +1855,6 @@ class Rule(Condition):
                                            'return': 'return'},
                                getter = 'get_flow_action',
                                setter = 'flow_action'))
-        self.put_attr(SingleAttr(name = 'meter',
-                                 value_type = StringType(),
-                                 getter = 'get_meter',
-                                 setter = 'meter'))
         self.put_attr(SingleAttr(name = 'jump-to',
                                  value_type = ObjectRef('chain'),
                                  getter = 'get_jump_chain_id',
@@ -2309,7 +2307,8 @@ def _port_resolver(port):
     # This function dispatches the appropriate port class depending on the
     # given port's type and instantiate it.
     resolved_element_type = RouterPort
-    if (port is not None) and port.get_type() == "Bridge":
+    if (port is not None) and\
+            (port.get_type() == BRIDGE or port.get_type() == VXLAN):
         resolved_element_type = BridgePort
     return resolved_element_type(port)
 

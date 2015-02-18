@@ -2,16 +2,9 @@
 #
 # This script generates RPM and debian packages.
 #
-# Usage: ./package.sh [VERSION_TAG]
-# Usage: ./package.sh [-t] [VERSION_TAG]
-#
-#
-#   -t: use timestamp based package name for unstable packges.
-#
-#   VERSION_TAG: Tag to determine version and revision string for
-#                deb and RPM packages
-#                If ommited (recommended), it defaults to
-#                `git describe --tags`
+# Usage: ./package.sh deb [VERSION]
+# Usage: ./package.sh rpm [VERSION] [RPM_REVISION]
+# Usage: ./package.sh clean
 #
 # Build ependencies:
 #   In short, do the following on Ubuntu based distribution to install
@@ -30,87 +23,6 @@
 #   * ronn: a tool to produce man pages from markdown
 
 set -e
-
-while getopts t OPT; do
-    case "$OPT" in
-      t)
-          USE_TIMESTAMP=yes
-          shift
-          ;;
-    esac
-done
-
-function set_timestamp_package_vals() {
-    local version=$1
-
-    pre_release_tag=$(date -u '+%Y%m%d%H%M').$(git rev-parse --short HEAD)
-
-    rpm_version=$version
-    rpm_revision="0".$pre_release_tag
-
-    deb_version=$version~$pre_release_tag
-}
-
-# Get version tag from command line or defaults to use git describe
-version_tag=$1
-if [ "$version_tag" == "" ]; then
-    version_tag=$(git describe --tags)
-fi
-
-if [[ "$version_tag" =~ v([0-9.]*)$ ]]; then
-    # For official release, e.g. v1.8.0
-    echo "Packaging official release: $version_tag"
-    version=${BASH_REMATCH[1]}
-
-    if [ "$USE_TIMESTAMP" == "yes" ]; then
-        set_timestamp_package_vals $version
-    else
-        rpm_version=$version
-        rpm_revision=1
-
-        deb_version=$version
-    fi
-
-elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+)$ ]] && [ "$USE_TIMESTAMP" != "yes" ]; then
-    # For RC packages, e.g. v1.8.0-rc1
-    echo "Producing RC packages for " $version_tag
-    version=${BASH_REMATCH[1]}
-    rc_tag=${BASH_REMATCH[2]}
-
-    if [ "$USE_TIMESTAMP" == "yes" ]; then
-        set_timestamp_package_vals $version
-    else
-        rpm_version=$version
-        rpm_revision="0."$rc_tag
-
-        deb_version=$version~$rc_tag
-    fi
-
-elif [[ "$version_tag" =~ v([0-9.]*)-(rc[0-9]+.*)$ ]] || [ "$USE_TIMESTAMP" == "yes" ]; then
-    # For unstable packages, e.g.v1.8.0-rc0-4-g994371d with git describe --tags
-    echo Producing unstable packages for tag: $version_tag
-    version=${BASH_REMATCH[1]}
-
-    if [ "$USE_TIMESTAMP" == "yes" ]; then
-        set_timestamp_package_vals $version
-    else
-        pre_release_tag=$(echo ${BASH_REMATCH[2]} | sed -e 's/-/./g')
-
-        rpm_version=$version
-        rpm_revision="0".$pre_release_tag
-
-        deb_version=$version~$pre_release_tag
-    fi
-
-else
-    echo "Aborted. invalid version tag. $version_tag"
-    exit 1
-fi
-
-
-echo "Packaging with the following info"
-echo "RPM: version=$rpm_version, revision=$rpm_revision"
-echo "DEB: version=$deb_version"
 
 ## Common args for rpm and deb
 FPM_BASE_ARGS=$(cat <<EOF
@@ -148,7 +60,7 @@ function package_rpm() {
     cp -r  src/midonetclient $RPM_BUILD_DIR/usr/lib/python2.7/site-packages/
     cp src/bin/midonet-cli $RPM_BUILD_DIR/usr/bin/
     cp doc/*.gz $RPM_BUILD_DIR/usr/share/man/man1/
-    RPM_ARGS="$RPM_ARGS -v $rpm_version"
+    RPM_ARGS="$RPM_ARGS -v $version"
     RPM_ARGS="$RPM_ARGS -C build/rpm"
     RPM_ARGS="$RPM_ARGS -d 'python >= 2.6' -d 'python < 2.8'"
     RPM_ARGS="$RPM_ARGS --epoch 1"
@@ -166,15 +78,44 @@ function package_deb() {
     cp src/bin/midonet-cli $DEB_BUILD_DIR/usr/bin/
     cp doc/*.gz $DEB_BUILD_DIR/usr/share/man/man1/
 
-    DEB_ARGS="$DEB_ARGS -v $deb_version"
+    DEB_ARGS="$DEB_ARGS -v $version"
     DEB_ARGS="$DEB_ARGS -C build/deb"
     DEB_ARGS="$DEB_ARGS --deb-priority optional"
 
     eval fpm $FPM_BASE_ARGS $DEB_ARGS -t deb .
 }
 
-# Main
-clean
-build_man_pages
-package_rpm
-package_deb
+case "$1" in
+  deb)
+      version=$2
+      if [ -z $version ] ; then
+          echo "Aborted. invalid options: $*"
+          exit 1
+      fi
+      clean
+      build_man_pages
+      package_deb
+      ;;
+  rpm)
+      version=$2
+      rpm_revision=$3
+      if [ -z $version ] ; then
+          echo "Aborted. invalid options: $*"
+          exit 1
+      fi
+      if [ -z $rpm_revision ] ; then
+          echo "Aborted. invalid options: $*"
+          exit 1
+      fi
+      clean
+      build_man_pages
+      package_rpm
+      ;;
+  clean)
+      clean
+      ;;
+  *)
+      echo "Aborted. invalid options: $*"
+      exit 1
+      ;;
+esac
