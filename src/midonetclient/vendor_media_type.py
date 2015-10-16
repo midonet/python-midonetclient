@@ -18,9 +18,9 @@
 APPLICATION_OCTET_STREAM = "application/octet-stream"
 APPLICATION_JSON_V5 = "application/vnd.org.midonet.Application-v5+json"
 APPLICATION_ERROR_JSON = "application/vnd.org.midonet.Error-v1+json"
-APPLICATION_TENANT_JSON = "application/vnd.org.midonet.Tenant-v1+json"
+APPLICATION_TENANT_JSON = "application/vnd.org.midonet.Tenant-v2+json"
 APPLICATION_TENANT_COLLECTION_JSON = \
-    "application/vnd.org.midonet.collection.Tenant-v1+json"
+    "application/vnd.org.midonet.collection.Tenant-v2+json"
 APPLICATION_ROUTER_JSON = "application/vnd.org.midonet.Router-v3+json"
 APPLICATION_ROUTER_COLLECTION_JSON = \
     "application/vnd.org.midonet.collection.Router-v3+json"
@@ -69,12 +69,6 @@ APPLICATION_RULE_JSON = "application/vnd.org.midonet.Rule-v2+json"
 APPLICATION_RULE_COLLECTION_JSON = \
     "application/vnd.org.midonet.collection.Rule-v2+json"
 
-APPLICATION_BGP_JSON = "application/vnd.org.midonet.Bgp-v1+json"
-APPLICATION_BGP_COLLECTION_JSON = \
-    "application/vnd.org.midonet.collection.Bgp-v1+json"
-APPLICATION_AD_ROUTE_JSON = "application/vnd.org.midonet.AdRoute-v1+json"
-APPLICATION_AD_ROUTE_COLLECTION_JSON = \
-    "application/vnd.org.midonet.collection.AdRoute-v1+json"
 APPLICATION_BGP_NETWORK_JSON = "application/vnd.org.midonet.BgpNetwork-v1+json"
 APPLICATION_BGP_NETWORK_COLLECTION_JSON =\
     "application/vnd.org.midonet.collection.BgpNetwork-v1+json"
