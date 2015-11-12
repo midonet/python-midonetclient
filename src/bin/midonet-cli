@@ -1659,6 +1659,11 @@ class BgpPeer(ObjectType):
                                  getter="get_connect_retry",
                                  setter="connect_retry",
                                  optional=True))
+        self.put_attr(SingleAttr(name='password',
+                                 value_type=StringType(),
+                                 getter="get_password",
+                                 setter="password",
+                                 optional=True))
 
     def type_name(self):
         return "peer"
@@ -2045,6 +2050,7 @@ class Rule(Condition):
                                            'continue': 'continue',
                                            'drop': 'drop',
                                            'jump': 'jump',
+                                           'l2_transform': 'l2-transform',
                                            'redirect': 'redirect',
                                            'reject': 'reject',
                                            'return': 'return',
@@ -2058,6 +2064,7 @@ class Rule(Condition):
         self.put_attr(EnumAttr(name = 'action',
                                mappings = {'accept': 'accept',
                                            'continue': 'continue',
+                                           'redirect': 'redirect',
                                            'return': 'return'},
                                getter = 'get_flow_action',
                                setter = 'flow_action'))
