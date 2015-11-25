@@ -21,7 +21,7 @@ import topology_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='topology_api.proto',
   package='org.midonet.cluster.models',
-  serialized_pb=_b('\n\x12topology_api.proto\x12\x1aorg.midonet.cluster.models\x1a\rcommons.proto\x1a\x0etopology.proto\"\xaa\x06\n\x07Request\x12\x42\n\thandshake\x18\x01 \x01(\x0b\x32-.org.midonet.cluster.models.Request.HandshakeH\x00\x12\x36\n\x03get\x18\x02 \x01(\x0b\x32\'.org.midonet.cluster.models.Request.GetH\x00\x12\x46\n\x0bunsubscribe\x18\x03 \x01(\x0b\x32/.org.midonet.cluster.models.Request.UnsubscribeH\x00\x12\x36\n\x03\x62ye\x18\x04 \x01(\x0b\x32\'.org.midonet.cluster.models.Request.ByeH\x00\x1a\x93\x01\n\tHandshake\x12\x30\n\x06req_id\x18\x01 \x02(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07\x63nxn_id\x18\x02 \x02(\x0b\x32 .org.midonet.cluster.models.UUID\x12\r\n\x05seqno\x18\x03 \x01(\x03\x12\x12\n\nlast_tx_id\x18\x04 \x01(\t\x1a\xa8\x01\n\x03Get\x12\x30\n\x06req_id\x18\x01 \x02(\x0b\x32 .org.midonet.cluster.models.UUID\x12.\n\x04type\x18\x02 \x02(\x0e\x32 .org.midonet.cluster.models.Type\x12,\n\x02id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x11\n\tsubscribe\x18\x04 \x01(\x08\x1a\x9d\x01\n\x0bUnsubscribe\x12\x30\n\x06req_id\x18\x01 \x02(\x0b\x32 .org.midonet.cluster.models.UUID\x12.\n\x04type\x18\x02 \x02(\x0e\x32 .org.midonet.cluster.models.Type\x12,\n\x02id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x1a\x37\n\x03\x42ye\x12\x30\n\x06req_id\x18\x01 \x02(\x0b\x32 .org.midonet.cluster.models.UUIDB\t\n\x07request\"\xc0\x0f\n\x08Response\x12\x36\n\x04type\x18\x01 \x02(\x0e\x32(.org.midonet.cluster.models.ResponseType\x12\r\n\x05seqno\x18\x02 \x01(\x03\x12\x30\n\x06req_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08obj_type\x18\x04 \x01(\x0e\x32 .org.midonet.cluster.models.Type\x12\x30\n\x06obj_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x06update\x18\x06 \x01(\x0b\x32+.org.midonet.cluster.models.Response.UpdateH\x00\x12\x41\n\x08snapshot\x18\x07 \x01(\x0b\x32-.org.midonet.cluster.models.Response.SnapshotH\x00\x12\x41\n\x08redirect\x18\x08 \x01(\x0b\x32-.org.midonet.cluster.models.Response.RedirectH\x00\x12\x39\n\x04info\x18\t \x01(\x0b\x32).org.midonet.cluster.models.Response.InfoH\x00\x1a\x45\n\x08Redirect\x12\x39\n\x0foriginal_req_id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x1a\x13\n\x04Info\x12\x0b\n\x03msg\x18\x01 \x01(\t\x1a\xae\n\n\x06Update\x12<\n\nbgpNetwork\x18\x01 \x01(\x0b\x32&.org.midonet.cluster.models.BgpNetworkH\x00\x12\x36\n\x07\x62gpPeer\x18\x02 \x01(\x0b\x32#.org.midonet.cluster.models.BgpPeerH\x00\x12\x32\n\x05\x63hain\x18\x03 \x01(\x0b\x32!.org.midonet.cluster.models.ChainH\x00\x12\x30\n\x04\x64hcp\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.DhcpH\x00\x12\x34\n\x06\x64hcpV6\x18\x05 \x01(\x0b\x32\".org.midonet.cluster.models.DhcpV6H\x00\x12\x43\n\x0ehealth_monitor\x18\x06 \x01(\x0b\x32).org.midonet.cluster.models.HealthMonitorH\x00\x12\x30\n\x04host\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.HostH\x00\x12@\n\rip_addr_group\x18\x08 \x01(\x0b\x32\'.org.midonet.cluster.models.IPAddrGroupH\x00\x12\x41\n\rload_balancer\x18\t \x01(\x0b\x32(.org.midonet.cluster.models.LoadBalancerH\x00\x12\x36\n\x07network\x18\n \x01(\x0b\x32#.org.midonet.cluster.models.NetworkH\x00\x12\x30\n\x04pool\x18\x0b \x01(\x0b\x32 .org.midonet.cluster.models.PoolH\x00\x12=\n\x0bpool_member\x18\x0c \x01(\x0b\x32&.org.midonet.cluster.models.PoolMemberH\x00\x12\x30\n\x04port\x18\r \x01(\x0b\x32 .org.midonet.cluster.models.PortH\x00\x12;\n\nport_group\x18\x0e \x01(\x0b\x32%.org.midonet.cluster.models.PortGroupH\x00\x12\x32\n\x05route\x18\x0f \x01(\x0b\x32!.org.midonet.cluster.models.RouteH\x00\x12\x34\n\x06router\x18\x10 \x01(\x0b\x32\".org.midonet.cluster.models.RouterH\x00\x12\x30\n\x04rule\x18\x11 \x01(\x0b\x32 .org.midonet.cluster.models.RuleH\x00\x12\x41\n\rtrace_request\x18\x12 \x01(\x0b\x32(.org.midonet.cluster.models.TraceRequestH\x00\x12=\n\x0btunnel_zone\x18\x13 \x01(\x0b\x32&.org.midonet.cluster.models.TunnelZoneH\x00\x12.\n\x03vip\x18\x14 \x01(\x0b\x32\x1f.org.midonet.cluster.models.VipH\x00\x12\x30\n\x04vtep\x18\x15 \x01(\x0b\x32 .org.midonet.cluster.models.VtepH\x00\x12\x34\n\x06mirror\x18\x16 \x01(\x0b\x32\".org.midonet.cluster.models.MirrorH\x00\x12>\n\x0bl2insertion\x18\x17 \x01(\x0b\x32\'.org.midonet.cluster.models.L2InsertionH\x00\x42\x08\n\x06update\x1a=\n\x08Snapshot\x12\x31\n\x07obj_ids\x18\x01 \x03(\x0b\x32 .org.midonet.cluster.models.UUIDB\t\n\x07payload*b\n\x0cResponseType\x12\x07\n\x03\x41\x43K\x10\x01\x12\x0c\n\x08REDIRECT\x10\x02\x12\x08\n\x04NACK\x10\x03\x12\t\n\x05\x45RROR\x10\x04\x12\x0c\n\x08\x44\x45LETION\x10\x05\x12\n\n\x06UPDATE\x10\x06\x12\x0c\n\x08SNAPSHOT\x10\x07\x42#\n\x17org.midonet.cluster.rpcB\x08\x43ommands')
+  serialized_pb=_b('\n\x12topology_api.proto\x12\x1aorg.midonet.cluster.models\x1a\rcommons.proto\x1a\x0etopology.proto\"\xaa\x06\n\x07Request\x12\x42\n\thandshake\x18\x01 \x01(\x0b\x32-.org.midonet.cluster.models.Request.HandshakeH\x00\x12\x36\n\x03get\x18\x02 \x01(\x0b\x32\'.org.midonet.cluster.models.Request.GetH\x00\x12\x46\n\x0bunsubscribe\x18\x03 \x01(\x0b\x32/.org.midonet.cluster.models.Request.UnsubscribeH\x00\x12\x36\n\x03\x62ye\x18\x04 \x01(\x0b\x32\'.org.midonet.cluster.models.Request.ByeH\x00\x1a\x93\x01\n\tHandshake\x12\x30\n\x06req_id\x18\x01 \x02(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07\x63nxn_id\x18\x02 \x02(\x0b\x32 .org.midonet.cluster.models.UUID\x12\r\n\x05seqno\x18\x03 \x01(\x03\x12\x12\n\nlast_tx_id\x18\x04 \x01(\t\x1a\xa8\x01\n\x03Get\x12\x30\n\x06req_id\x18\x01 \x02(\x0b\x32 .org.midonet.cluster.models.UUID\x12.\n\x04type\x18\x02 \x02(\x0e\x32 .org.midonet.cluster.models.Type\x12,\n\x02id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x11\n\tsubscribe\x18\x04 \x01(\x08\x1a\x9d\x01\n\x0bUnsubscribe\x12\x30\n\x06req_id\x18\x01 \x02(\x0b\x32 .org.midonet.cluster.models.UUID\x12.\n\x04type\x18\x02 \x02(\x0e\x32 .org.midonet.cluster.models.Type\x12,\n\x02id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x1a\x37\n\x03\x42ye\x12\x30\n\x06req_id\x18\x01 \x02(\x0b\x32 .org.midonet.cluster.models.UUIDB\t\n\x07request\"\x9e\x11\n\x08Response\x12\x36\n\x04type\x18\x01 \x02(\x0e\x32(.org.midonet.cluster.models.ResponseType\x12\r\n\x05seqno\x18\x02 \x01(\x03\x12\x30\n\x06req_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08obj_type\x18\x04 \x01(\x0e\x32 .org.midonet.cluster.models.Type\x12\x30\n\x06obj_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x06update\x18\x06 \x01(\x0b\x32+.org.midonet.cluster.models.Response.UpdateH\x00\x12\x41\n\x08snapshot\x18\x07 \x01(\x0b\x32-.org.midonet.cluster.models.Response.SnapshotH\x00\x12\x41\n\x08redirect\x18\x08 \x01(\x0b\x32-.org.midonet.cluster.models.Response.RedirectH\x00\x12\x39\n\x04info\x18\t \x01(\x0b\x32).org.midonet.cluster.models.Response.InfoH\x00\x1a\x45\n\x08Redirect\x12\x39\n\x0foriginal_req_id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x1a\x13\n\x04Info\x12\x0b\n\x03msg\x18\x01 \x01(\t\x1a\x8c\x0c\n\x06Update\x12<\n\nbgpNetwork\x18\x01 \x01(\x0b\x32&.org.midonet.cluster.models.BgpNetworkH\x00\x12\x36\n\x07\x62gpPeer\x18\x02 \x01(\x0b\x32#.org.midonet.cluster.models.BgpPeerH\x00\x12\x32\n\x05\x63hain\x18\x03 \x01(\x0b\x32!.org.midonet.cluster.models.ChainH\x00\x12\x30\n\x04\x64hcp\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.DhcpH\x00\x12\x34\n\x06\x64hcpV6\x18\x05 \x01(\x0b\x32\".org.midonet.cluster.models.DhcpV6H\x00\x12\x43\n\x0ehealth_monitor\x18\x06 \x01(\x0b\x32).org.midonet.cluster.models.HealthMonitorH\x00\x12\x30\n\x04host\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.HostH\x00\x12@\n\rip_addr_group\x18\x08 \x01(\x0b\x32\'.org.midonet.cluster.models.IPAddrGroupH\x00\x12\x41\n\rload_balancer\x18\t \x01(\x0b\x32(.org.midonet.cluster.models.LoadBalancerH\x00\x12\x36\n\x07network\x18\n \x01(\x0b\x32#.org.midonet.cluster.models.NetworkH\x00\x12\x30\n\x04pool\x18\x0b \x01(\x0b\x32 .org.midonet.cluster.models.PoolH\x00\x12=\n\x0bpool_member\x18\x0c \x01(\x0b\x32&.org.midonet.cluster.models.PoolMemberH\x00\x12\x30\n\x04port\x18\r \x01(\x0b\x32 .org.midonet.cluster.models.PortH\x00\x12;\n\nport_group\x18\x0e \x01(\x0b\x32%.org.midonet.cluster.models.PortGroupH\x00\x12\x32\n\x05route\x18\x0f \x01(\x0b\x32!.org.midonet.cluster.models.RouteH\x00\x12\x34\n\x06router\x18\x10 \x01(\x0b\x32\".org.midonet.cluster.models.RouterH\x00\x12\x30\n\x04rule\x18\x11 \x01(\x0b\x32 .org.midonet.cluster.models.RuleH\x00\x12\x41\n\rtrace_request\x18\x12 \x01(\x0b\x32(.org.midonet.cluster.models.TraceRequestH\x00\x12=\n\x0btunnel_zone\x18\x13 \x01(\x0b\x32&.org.midonet.cluster.models.TunnelZoneH\x00\x12.\n\x03vip\x18\x14 \x01(\x0b\x32\x1f.org.midonet.cluster.models.VipH\x00\x12\x30\n\x04vtep\x18\x15 \x01(\x0b\x32 .org.midonet.cluster.models.VtepH\x00\x12\x34\n\x06mirror\x18\x16 \x01(\x0b\x32\".org.midonet.cluster.models.MirrorH\x00\x12>\n\x0bl2insertion\x18\x17 \x01(\x0b\x32\'.org.midonet.cluster.models.L2InsertionH\x00\x12;\n\nhost_group\x18\x18 \x01(\x0b\x32%.org.midonet.cluster.models.HostGroupH\x00\x12I\n\x11service_container\x18\x19 \x01(\x0b\x32,.org.midonet.cluster.models.ServiceContainerH\x00\x12T\n\x17service_container_group\x18\x1a \x01(\x0b\x32\x31.org.midonet.cluster.models.ServiceContainerGroupH\x00\x42\x08\n\x06update\x1a=\n\x08Snapshot\x12\x31\n\x07obj_ids\x18\x01 \x03(\x0b\x32 .org.midonet.cluster.models.UUIDB\t\n\x07payload*b\n\x0cResponseType\x12\x07\n\x03\x41\x43K\x10\x01\x12\x0c\n\x08REDIRECT\x10\x02\x12\x08\n\x04NACK\x10\x03\x12\t\n\x05\x45RROR\x10\x04\x12\x0c\n\x08\x44\x45LETION\x10\x05\x12\n\n\x06UPDATE\x10\x06\x12\x0c\n\x08SNAPSHOT\x10\x07\x42#\n\x17org.midonet.cluster.rpcB\x08\x43ommands')
   ,
   dependencies=[commons_pb2.DESCRIPTOR,topology_pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -63,8 +63,8 @@ _RESPONSETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2881,
-  serialized_end=2979,
+  serialized_start=3103,
+  serialized_end=3201,
 )
 _sym_db.RegisterEnumDescriptor(_RESPONSETYPE)
 
@@ -531,6 +531,27 @@ _RESPONSE_UPDATE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='host_group', full_name='org.midonet.cluster.models.Response.Update.host_group', index=23,
+      number=24, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='service_container', full_name='org.midonet.cluster.models.Response.Update.service_container', index=24,
+      number=25, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='service_container_group', full_name='org.midonet.cluster.models.Response.Update.service_container_group', index=25,
+      number=26, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -546,7 +567,7 @@ _RESPONSE_UPDATE = _descriptor.Descriptor(
       index=0, containing_type=None, fields=[]),
   ],
   serialized_start=1479,
-  serialized_end=2805,
+  serialized_end=3027,
 )
 
 _RESPONSE_SNAPSHOT = _descriptor.Descriptor(
@@ -574,8 +595,8 @@ _RESPONSE_SNAPSHOT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2807,
-  serialized_end=2868,
+  serialized_start=3029,
+  serialized_end=3090,
 )
 
 _RESPONSE = _descriptor.Descriptor(
@@ -663,7 +684,7 @@ _RESPONSE = _descriptor.Descriptor(
       index=0, containing_type=None, fields=[]),
   ],
   serialized_start=895,
-  serialized_end=2879,
+  serialized_end=3101,
 )
 
 _REQUEST_HANDSHAKE.fields_by_name['req_id'].message_type = commons_pb2._UUID
@@ -721,6 +742,9 @@ _RESPONSE_UPDATE.fields_by_name['vip'].message_type = topology_pb2._VIP
 _RESPONSE_UPDATE.fields_by_name['vtep'].message_type = topology_pb2._VTEP
 _RESPONSE_UPDATE.fields_by_name['mirror'].message_type = topology_pb2._MIRROR
 _RESPONSE_UPDATE.fields_by_name['l2insertion'].message_type = topology_pb2._L2INSERTION
+_RESPONSE_UPDATE.fields_by_name['host_group'].message_type = topology_pb2._HOSTGROUP
+_RESPONSE_UPDATE.fields_by_name['service_container'].message_type = topology_pb2._SERVICECONTAINER
+_RESPONSE_UPDATE.fields_by_name['service_container_group'].message_type = topology_pb2._SERVICECONTAINERGROUP
 _RESPONSE_UPDATE.containing_type = _RESPONSE
 _RESPONSE_UPDATE.oneofs_by_name['update'].fields.append(
   _RESPONSE_UPDATE.fields_by_name['bgpNetwork'])
@@ -791,6 +815,15 @@ _RESPONSE_UPDATE.fields_by_name['mirror'].containing_oneof = _RESPONSE_UPDATE.on
 _RESPONSE_UPDATE.oneofs_by_name['update'].fields.append(
   _RESPONSE_UPDATE.fields_by_name['l2insertion'])
 _RESPONSE_UPDATE.fields_by_name['l2insertion'].containing_oneof = _RESPONSE_UPDATE.oneofs_by_name['update']
+_RESPONSE_UPDATE.oneofs_by_name['update'].fields.append(
+  _RESPONSE_UPDATE.fields_by_name['host_group'])
+_RESPONSE_UPDATE.fields_by_name['host_group'].containing_oneof = _RESPONSE_UPDATE.oneofs_by_name['update']
+_RESPONSE_UPDATE.oneofs_by_name['update'].fields.append(
+  _RESPONSE_UPDATE.fields_by_name['service_container'])
+_RESPONSE_UPDATE.fields_by_name['service_container'].containing_oneof = _RESPONSE_UPDATE.oneofs_by_name['update']
+_RESPONSE_UPDATE.oneofs_by_name['update'].fields.append(
+  _RESPONSE_UPDATE.fields_by_name['service_container_group'])
+_RESPONSE_UPDATE.fields_by_name['service_container_group'].containing_oneof = _RESPONSE_UPDATE.oneofs_by_name['update']
 _RESPONSE_SNAPSHOT.fields_by_name['obj_ids'].message_type = commons_pb2._UUID
 _RESPONSE_SNAPSHOT.containing_type = _RESPONSE
 _RESPONSE.fields_by_name['type'].enum_type = _RESPONSETYPE
