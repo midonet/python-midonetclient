@@ -20,7 +20,7 @@ import commons_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='topology.proto',
   package='org.midonet.cluster.models',
-  serialized_pb=_b('\n\x0etopology.proto\x12\x1aorg.midonet.cluster.models\x1a\rcommons.proto\"\xa5\x01\n\nBgpNetwork\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\x06subnet\x18\x02 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x33\n\trouter_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"\x87\x02\n\x07\x42gpPeer\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x11\n\tas_number\x18\x02 \x01(\x05\x12\x36\n\x07\x61\x64\x64ress\x18\x03 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x12\n\nkeep_alive\x18\x04 \x01(\x05\x12\x11\n\thold_time\x18\x05 \x01(\x05\x12\x15\n\rconnect_retry\x18\x06 \x01(\x05\x12\x10\n\x08password\x18\x08 \x01(\t\x12\x33\n\trouter_id\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"\xb8\x04\n\x05\x43hain\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\ttenant_id\x18\x03 \x01(\t\x12\x32\n\x08rule_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13network_inbound_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12>\n\x14network_outbound_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12router_inbound_ids\x18h \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13router_outbound_ids\x18i \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10port_inbound_ids\x18j \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11port_outbound_ids\x18k \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x37\n\rjump_rule_ids\x18l \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xe1\x07\n\x04\x44hcp\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nnetwork_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x0esubnet_address\x18\x03 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12=\n\x0eserver_address\x18\x04 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x41\n\x12\x64ns_server_address\x18\x05 \x03(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12>\n\x0f\x64\x65\x66\x61ult_gateway\x18\x06 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x15\n\rinterface_mtu\x18\x07 \x01(\x05\x12\x43\n\ropt121_routes\x18\x08 \x03(\x0b\x32,.org.midonet.cluster.models.Dhcp.Opt121Route\x12\x34\n\x05hosts\x18\t \x03(\x0b\x32%.org.midonet.cluster.models.Dhcp.Host\x12\x0f\n\x07\x65nabled\x18\n \x01(\x08\x12;\n\x11router_if_port_id\x18\x65 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11gateway_route_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x1a\x7f\n\x0bOpt121Route\x12\x38\n\ndst_subnet\x18\x01 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x36\n\x07gateway\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x1a\xd6\x01\n\x04Host\x12\x0b\n\x03mac\x18\x01 \x01(\t\x12\x39\n\nip_address\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x0c\n\x04name\x18\x03 \x01(\t\x12K\n\x0f\x65xtra_dhcp_opts\x18\x04 \x03(\x0b\x32\x32.org.midonet.cluster.models.Dhcp.Host.ExtraDhcpOpt\x1a+\n\x0c\x45xtraDhcpOpt\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\xc6\x02\n\x06\x44hcpV6\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nnetwork_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x0esubnet_address\x18\x03 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x36\n\x05hosts\x18\x04 \x03(\x0b\x32\'.org.midonet.cluster.models.DhcpV6.Host\x1a\x62\n\x04Host\x12\x11\n\tclient_id\x18\x01 \x01(\t\x12\x39\n\nip_address\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x0c\n\x04name\x18\x03 \x01(\t\"\xea\x02\n\rHealthMonitor\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0e\x61\x64min_state_up\x18\x02 \x01(\x08\x12N\n\x04type\x18\x03 \x01(\x0e\x32;.org.midonet.cluster.models.HealthMonitor.HealthMonitorType:\x03TCP\x12<\n\x06status\x18\x04 \x01(\x0e\x32$.org.midonet.cluster.models.LBStatus:\x06\x41\x43TIVE\x12\r\n\x05\x64\x65lay\x18\x05 \x01(\x05\x12\x0f\n\x07timeout\x18\x06 \x01(\x05\x12\x13\n\x0bmax_retries\x18\x07 \x01(\x05\x12\x32\n\x08pool_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\x1c\n\x11HealthMonitorType\x12\x07\n\x03TCP\x10\x01\"\x8d\x02\n\x04Host\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12 \n\x15\x66looding_proxy_weight\x18\x03 \x01(\x05:\x01\x31\x12\x39\n\x0ftunnel_zone_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08port_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x38\n\x0ehost_group_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xb8\x01\n\tHostGroup\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x32\n\x08host_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11service_group_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xc0\x03\n\x0bIPAddrGroup\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12J\n\rip_addr_ports\x18\x03 \x03(\x0b\x32\x33.org.midonet.cluster.models.IPAddrGroup.IPAddrPorts\x12:\n\x10inbound_chain_id\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11outbound_chain_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08rule_ids\x18\x06 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x1a|\n\x0bIPAddrPorts\x12\x39\n\nip_address\x18\x01 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x32\n\x08port_ids\x18\x02 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xda\x02\n\x0bL2Insertion\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07port_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x35\n\x0bsrv_port_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04vlan\x18\x04 \x01(\r\x12\x11\n\tfail_open\x18\x05 \x01(\x08\x12\x10\n\x08position\x18\x06 \x01(\r\x12\x0b\n\x03mac\x18\x07 \x01(\t\x12\x38\n\x0esrv_rule_in_id\x18\x64 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x39\n\x0fsrv_rule_out_id\x18\x65 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"\xbd\x01\n\x0cLoadBalancer\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0e\x61\x64min_state_up\x18\x02 \x01(\x08\x12\x33\n\trouter_id\x18\x65 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08pool_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\x9c\x04\n\x06Mirror\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nto_port_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x39\n\nconditions\x18\x03 \x03(\x0b\x32%.org.midonet.cluster.models.Condition\x12=\n\x13network_inbound_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12>\n\x14network_outbound_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12router_inbound_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13router_outbound_ids\x18h \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10port_inbound_ids\x18i \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11port_outbound_ids\x18j \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xdf\x05\n\x07Network\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x11\n\ttenant_id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x16\n\x0e\x61\x64min_state_up\x18\x04 \x01(\x08\x12\x12\n\ntunnel_key\x18\x05 \x01(\x04\x12;\n\x11inbound_filter_id\x18\x06 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12outbound_filter_id\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0b\n\x03vni\x18\x08 \x01(\r\x12<\n\x12inbound_mirror_ids\x18\t \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13outbound_mirror_ids\x18\n \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08port_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x38\n\x0evxlan_port_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08\x64hcp_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\ndhcpv6_ids\x18h \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11trace_request_ids\x18i \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12?\n\x15service_container_ids\x18j \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\x9d\x06\n\x04Pool\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11health_monitor_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10load_balancer_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0e\x61\x64min_state_up\x18\x04 \x01(\x08\x12\x44\n\x08protocol\x18\x05 \x01(\x0e\x32-.org.midonet.cluster.models.Pool.PoolProtocol:\x03TCP\x12M\n\tlb_method\x18\x06 \x01(\x0e\x32-.org.midonet.cluster.models.Pool.PoolLBMethod:\x0bROUND_ROBIN\x12<\n\x06status\x18\x07 \x01(\x0e\x32$.org.midonet.cluster.models.LBStatus:\x06\x41\x43TIVE\x12W\n\x0emapping_status\x18\x08 \x01(\x0e\x32?.org.midonet.cluster.models.Pool.PoolHealthMonitorMappingStatus\x12\x39\n\x0fpool_member_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07vip_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\x17\n\x0cPoolProtocol\x12\x07\n\x03TCP\x10\x01\"\x1f\n\x0cPoolLBMethod\x12\x0f\n\x0bROUND_ROBIN\x10\x01\"\x81\x01\n\x1ePoolHealthMonitorMappingStatus\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0c\n\x08INACTIVE\x10\x02\x12\x12\n\x0ePENDING_CREATE\x10\x03\x12\x12\n\x0ePENDING_UPDATE\x10\x04\x12\x12\n\x0ePENDING_DELETE\x10\x05\x12\t\n\x05\x45RROR\x10\x06\"\xa2\x02\n\nPoolMember\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0e\x61\x64min_state_up\x18\x02 \x01(\x08\x12\x31\n\x07pool_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x06status\x18\x04 \x01(\x0e\x32$.org.midonet.cluster.models.LBStatus:\x06\x41\x43TIVE\x12\x36\n\x07\x61\x64\x64ress\x18\x05 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x15\n\rprotocol_port\x18\x06 \x01(\x05\x12\x0e\n\x06weight\x18\x07 \x01(\x05\"\x88\x0c\n\x04Port\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nnetwork_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x33\n\trouter_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11inbound_filter_id\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12outbound_filter_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x12\n\ntunnel_key\x18\x06 \x01(\x04\x12\x31\n\x07peer_id\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x30\n\x06vif_id\x18\x08 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07host_id\x18\t \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0einterface_name\x18\n \x01(\t\x12\x1c\n\x0e\x61\x64min_state_up\x18\x0b \x01(\x08:\x04true\x12\x38\n\x0eport_group_ids\x18\x0c \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0f\n\x07vlan_id\x18\r \x01(\r\x12\x39\n\x0bport_subnet\x18\x0e \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12;\n\x0cport_address\x18\x0f \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x10\n\x08port_mac\x18\x10 \x01(\t\x12\x33\n\troute_ids\x18\x11 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07\x64hcp_id\x18\x12 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07vtep_id\x18\x13 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12inbound_mirror_ids\x18\x14 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13outbound_mirror_ids\x18\x15 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x41\n\x17l2insertion_infilter_id\x18\x17 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x42\n\x18l2insertion_outfilter_id\x18\x18 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12>\n\x14service_container_id\x18\x19 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07vip_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10\x66ip_nat_rule_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11trace_request_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nmirror_ids\x18h \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x37\n\rinsertion_ids\x18n \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11srv_insertion_ids\x18o \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xdd\x01\n\tPortGroup\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\ttenant_id\x18\x03 \x01(\t\x12\x10\n\x08stateful\x18\x04 \x01(\x08\x12\x32\n\x08port_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11service_group_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xb2\x04\n\x05Route\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x38\n\nsrc_subnet\x18\x02 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x38\n\ndst_subnet\x18\x03 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12;\n\x08next_hop\x18\x04 \x01(\x0e\x32).org.midonet.cluster.models.Route.NextHop\x12:\n\x10next_hop_port_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0e\n\x06weight\x18\x06 \x01(\x05\x12\x12\n\nattributes\x18\x07 \x01(\t\x12\x33\n\trouter_id\x18\x08 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12?\n\x10next_hop_gateway\x18\t \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x39\n\x0fgateway_dhcp_id\x18\n \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"9\n\x07NextHop\x12\r\n\tBLACKHOLE\x10\x00\x12\n\n\x06REJECT\x10\x01\x12\x08\n\x04PORT\x10\x02\x12\t\n\x05LOCAL\x10\x03\"\xd7\x06\n\x06Router\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x11\n\ttenant_id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x16\n\x0e\x61\x64min_state_up\x18\x04 \x01(\x08\x12;\n\x11inbound_filter_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12outbound_filter_id\x18\x06 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10load_balancer_id\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x33\n\troute_ids\x18\x08 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x15\n\tas_number\x18\t \x01(\x05:\x02-1\x12\x39\n\x0f\x62gp_network_ids\x18\n \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x36\n\x0c\x62gp_peer_ids\x18\x0b \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12inbound_mirror_ids\x18\x0c \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13outbound_mirror_ids\x18\r \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x41\n\x17local_redirect_chain_id\x18\x0e \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08port_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11trace_request_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12?\n\x15service_container_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xa7\x0b\n\x04Rule\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x33\n\x04type\x18\x02 \x01(\x0e\x32%.org.midonet.cluster.models.Rule.Type\x12\x32\n\x08\x63hain_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x37\n\x06\x61\x63tion\x18\x04 \x01(\x0e\x32\'.org.midonet.cluster.models.Rule.Action\x12\x38\n\tcondition\x18\x05 \x01(\x0b\x32%.org.midonet.cluster.models.Condition\x12\x35\n\x0b\x66ip_port_id\x18\x06 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12G\n\x0ejump_rule_data\x18\x64 \x01(\x0b\x32-.org.midonet.cluster.models.Rule.JumpRuleDataH\x00\x12\x45\n\rnat_rule_data\x18\x65 \x01(\x0b\x32,.org.midonet.cluster.models.Rule.NatRuleDataH\x00\x12I\n\x0ftrace_rule_data\x18\x66 \x01(\x0b\x32..org.midonet.cluster.models.Rule.TraceRuleDataH\x00\x12S\n\x13transform_rule_data\x18g \x01(\x0b\x32\x34.org.midonet.cluster.models.Rule.L2TransformRuleDataH\x00\x1a`\n\x0cJumpRuleData\x12\x37\n\rjump_chain_id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x17\n\x0fjump_chain_name\x18\x02 \x01(\t\x1a\x9d\x01\n\tNatTarget\x12\x37\n\x08nw_start\x18\x01 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x35\n\x06nw_end\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x10\n\x08tp_start\x18\x03 \x01(\r\x12\x0e\n\x06tp_end\x18\x04 \x01(\r\x1am\n\x0bNatRuleData\x12?\n\x0bnat_targets\x18\x01 \x03(\x0b\x32*.org.midonet.cluster.models.Rule.NatTarget\x12\x0c\n\x04\x64nat\x18\x02 \x01(\x08\x12\x0f\n\x07reverse\x18\x03 \x01(\x08\x1aZ\n\rTraceRuleData\x12:\n\x10trace_request_id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\r\n\x05limit\x18\x02 \x01(\x04\x1a\x98\x01\n\x13L2TransformRuleData\x12\x10\n\x08pop_vlan\x18\x01 \x01(\x08\x12\x11\n\tpush_vlan\x18\x02 \x01(\r\x12\x38\n\x0etarget_port_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0f\n\x07ingress\x18\x04 \x01(\x08\x12\x11\n\tfail_open\x18\x05 \x01(\x08\"[\n\x04Type\x12\x10\n\x0cLITERAL_RULE\x10\x01\x12\x0c\n\x08NAT_RULE\x10\x02\x12\r\n\tJUMP_RULE\x10\x03\x12\x0e\n\nTRACE_RULE\x10\x04\x12\x14\n\x10L2TRANSFORM_RULE\x10\x05\"\\\n\x06\x41\x63tion\x12\n\n\x06\x41\x43\x43\x45PT\x10\x01\x12\x0c\n\x08\x43ONTINUE\x10\x02\x12\x08\n\x04\x44ROP\x10\x03\x12\x08\n\x04JUMP\x10\x04\x12\n\n\x06REJECT\x10\x05\x12\n\n\x06RETURN\x10\x06\x12\x0c\n\x08REDIRECT\x10\x07\x42\x0b\n\trule_data\"\xa3\x02\n\x10ServiceContainer\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10service_group_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x33\n\trouter_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nnetwork_id\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10\x63onfiguration_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"\xf8\x02\n\x15ServiceContainerGroup\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12O\n\x0cservice_type\x18\x02 \x01(\x0e\x32\x39.org.midonet.cluster.models.ServiceContainerGroup.Service\x12\x37\n\rhost_group_id\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x37\n\rport_group_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12?\n\x15service_container_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"-\n\x07Service\x12\t\n\x05IPSEC\x10\x00\x12\n\n\x06QUAGGA\x10\x01\x12\x0b\n\x07HAPROXY\x10\x02\"\xdf\x02\n\x0cTraceRequest\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\x12\x38\n\tcondition\x18\x03 \x01(\x0b\x32%.org.midonet.cluster.models.Condition\x12\r\n\x05limit\x18\x04 \x01(\x04\x12\x0c\n\x04name\x18\x05 \x01(\t\x12\x1b\n\x13\x63reate_timestamp_ms\x18\x06 \x01(\x04\x12\x31\n\x07port_id\x18\x65 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nnetwork_id\x18\x66 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x33\n\trouter_id\x18g \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"\x8f\x03\n\nTunnelZone\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x39\n\x04type\x18\x03 \x01(\x0e\x32+.org.midonet.cluster.models.TunnelZone.Type\x12>\n\x05hosts\x18\x04 \x03(\x0b\x32/.org.midonet.cluster.models.TunnelZone.HostToIp\x12\x32\n\x08host_ids\x18\x05 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x1ap\n\x08HostToIp\x12\x31\n\x07host_id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x02ip\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\"$\n\x04Type\x12\x07\n\x03GRE\x10\x01\x12\t\n\x05VXLAN\x10\x02\x12\x08\n\x04VTEP\x10\x03\"\xfe\x02\n\x03Vip\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0e\x61\x64min_state_up\x18\x02 \x01(\x08\x12\x31\n\x07pool_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x36\n\x07\x61\x64\x64ress\x18\x04 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x15\n\rprotocol_port\x18\x05 \x01(\r\x12O\n\x13session_persistence\x18\x06 \x01(\x0e\x32\x32.org.midonet.cluster.models.Vip.SessionPersistence\x12\x39\n\x0fgateway_port_id\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"#\n\x12SessionPersistence\x12\r\n\tSOURCE_IP\x10\x01\"\xe6\x02\n\x04Vtep\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\rmanagement_ip\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x17\n\x0fmanagement_port\x18\x03 \x01(\r\x12\x38\n\x0etunnel_zone_id\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x08\x62indings\x18\x06 \x03(\x0b\x32(.org.midonet.cluster.models.Vtep.Binding\x1a\x63\n\x07\x42inding\x12\x11\n\tport_name\x18\x01 \x01(\t\x12\x0f\n\x07vlan_id\x18\x02 \x01(\r\x12\x34\n\nnetwork_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID*\x86\x03\n\x04Type\x12\x0f\n\x0b\x42GP_NETWORK\x10\x01\x12\x0c\n\x08\x42GP_PEER\x10\x02\x12\t\n\x05\x43HAIN\x10\x03\x12\x08\n\x04\x44HCP\x10\x04\x12\x0b\n\x07\x44HCP_V6\x10\x05\x12\x12\n\x0eHEALTH_MONITOR\x10\x06\x12\x08\n\x04HOST\x10\x07\x12\x11\n\rIP_ADDR_GROUP\x10\x08\x12\x11\n\rLOAD_BALANCER\x10\t\x12\x0b\n\x07NETWORK\x10\n\x12\x08\n\x04POOL\x10\x0b\x12\x0f\n\x0bPOOL_MEMBER\x10\x0c\x12\x08\n\x04PORT\x10\r\x12\x0e\n\nPORT_GROUP\x10\x0e\x12\t\n\x05ROUTE\x10\x0f\x12\n\n\x06ROUTER\x10\x10\x12\x08\n\x04RULE\x10\x11\x12\x11\n\rTRACE_REQUEST\x10\x12\x12\x0f\n\x0bTUNNEL_ZONE\x10\x13\x12\x07\n\x03VIP\x10\x14\x12\x08\n\x04VTEP\x10\x15\x12\n\n\x06MIRROR\x10\x16\x12\x0e\n\nHOST_GROUP\x10\x17\x12\x0f\n\x0bL2INSERTION\x10\x1f\x12\x15\n\x11SERVICE_CONTAINER\x10 \x12\x1b\n\x17SERVICE_CONTAINER_GROUP\x10!B&\n\x1aorg.midonet.cluster.modelsB\x08Topology')
+  serialized_pb=_b('\n\x0etopology.proto\x12\x1aorg.midonet.cluster.models\x1a\rcommons.proto\"\xa5\x01\n\nBgpNetwork\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\x06subnet\x18\x02 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x33\n\trouter_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"\x87\x02\n\x07\x42gpPeer\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x11\n\tas_number\x18\x02 \x01(\x05\x12\x36\n\x07\x61\x64\x64ress\x18\x03 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x12\n\nkeep_alive\x18\x04 \x01(\x05\x12\x11\n\thold_time\x18\x05 \x01(\x05\x12\x15\n\rconnect_retry\x18\x06 \x01(\x05\x12\x10\n\x08password\x18\x08 \x01(\t\x12\x33\n\trouter_id\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"\xb8\x04\n\x05\x43hain\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\ttenant_id\x18\x03 \x01(\t\x12\x32\n\x08rule_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13network_inbound_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12>\n\x14network_outbound_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12router_inbound_ids\x18h \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13router_outbound_ids\x18i \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10port_inbound_ids\x18j \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11port_outbound_ids\x18k \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x37\n\rjump_rule_ids\x18l \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xe1\x07\n\x04\x44hcp\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nnetwork_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x0esubnet_address\x18\x03 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12=\n\x0eserver_address\x18\x04 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x41\n\x12\x64ns_server_address\x18\x05 \x03(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12>\n\x0f\x64\x65\x66\x61ult_gateway\x18\x06 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x15\n\rinterface_mtu\x18\x07 \x01(\x05\x12\x43\n\ropt121_routes\x18\x08 \x03(\x0b\x32,.org.midonet.cluster.models.Dhcp.Opt121Route\x12\x34\n\x05hosts\x18\t \x03(\x0b\x32%.org.midonet.cluster.models.Dhcp.Host\x12\x0f\n\x07\x65nabled\x18\n \x01(\x08\x12;\n\x11router_if_port_id\x18\x65 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11gateway_route_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x1a\x7f\n\x0bOpt121Route\x12\x38\n\ndst_subnet\x18\x01 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x36\n\x07gateway\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x1a\xd6\x01\n\x04Host\x12\x0b\n\x03mac\x18\x01 \x01(\t\x12\x39\n\nip_address\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x0c\n\x04name\x18\x03 \x01(\t\x12K\n\x0f\x65xtra_dhcp_opts\x18\x04 \x03(\x0b\x32\x32.org.midonet.cluster.models.Dhcp.Host.ExtraDhcpOpt\x1a+\n\x0c\x45xtraDhcpOpt\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\xc6\x02\n\x06\x44hcpV6\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nnetwork_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x0esubnet_address\x18\x03 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x36\n\x05hosts\x18\x04 \x03(\x0b\x32\'.org.midonet.cluster.models.DhcpV6.Host\x1a\x62\n\x04Host\x12\x11\n\tclient_id\x18\x01 \x01(\t\x12\x39\n\nip_address\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x0c\n\x04name\x18\x03 \x01(\t\"\xea\x02\n\rHealthMonitor\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0e\x61\x64min_state_up\x18\x02 \x01(\x08\x12N\n\x04type\x18\x03 \x01(\x0e\x32;.org.midonet.cluster.models.HealthMonitor.HealthMonitorType:\x03TCP\x12<\n\x06status\x18\x04 \x01(\x0e\x32$.org.midonet.cluster.models.LBStatus:\x06\x41\x43TIVE\x12\r\n\x05\x64\x65lay\x18\x05 \x01(\x05\x12\x0f\n\x07timeout\x18\x06 \x01(\x05\x12\x13\n\x0bmax_retries\x18\x07 \x01(\x05\x12\x32\n\x08pool_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\x1c\n\x11HealthMonitorType\x12\x07\n\x03TCP\x10\x01\"\x8d\x02\n\x04Host\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12 \n\x15\x66looding_proxy_weight\x18\x03 \x01(\x05:\x01\x31\x12\x39\n\x0ftunnel_zone_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08port_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x38\n\x0ehost_group_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xb8\x01\n\tHostGroup\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x32\n\x08host_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11service_group_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xc0\x03\n\x0bIPAddrGroup\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12J\n\rip_addr_ports\x18\x03 \x03(\x0b\x32\x33.org.midonet.cluster.models.IPAddrGroup.IPAddrPorts\x12:\n\x10inbound_chain_id\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11outbound_chain_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08rule_ids\x18\x06 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x1a|\n\x0bIPAddrPorts\x12\x39\n\nip_address\x18\x01 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x32\n\x08port_ids\x18\x02 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xda\x02\n\x0bL2Insertion\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07port_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x35\n\x0bsrv_port_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04vlan\x18\x04 \x01(\r\x12\x11\n\tfail_open\x18\x05 \x01(\x08\x12\x10\n\x08position\x18\x06 \x01(\r\x12\x0b\n\x03mac\x18\x07 \x01(\t\x12\x38\n\x0esrv_rule_in_id\x18\x64 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x39\n\x0fsrv_rule_out_id\x18\x65 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"\xbd\x01\n\x0cLoadBalancer\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0e\x61\x64min_state_up\x18\x02 \x01(\x08\x12\x33\n\trouter_id\x18\x65 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08pool_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\x9c\x04\n\x06Mirror\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nto_port_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x39\n\nconditions\x18\x03 \x03(\x0b\x32%.org.midonet.cluster.models.Condition\x12=\n\x13network_inbound_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12>\n\x14network_outbound_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12router_inbound_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13router_outbound_ids\x18h \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10port_inbound_ids\x18i \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11port_outbound_ids\x18j \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\x9e\x05\n\x07Network\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x11\n\ttenant_id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x16\n\x0e\x61\x64min_state_up\x18\x04 \x01(\x08\x12\x12\n\ntunnel_key\x18\x05 \x01(\x04\x12;\n\x11inbound_filter_id\x18\x06 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12outbound_filter_id\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0b\n\x03vni\x18\x08 \x01(\r\x12<\n\x12inbound_mirror_ids\x18\t \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13outbound_mirror_ids\x18\n \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08port_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x38\n\x0evxlan_port_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08\x64hcp_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\ndhcpv6_ids\x18h \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11trace_request_ids\x18i \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\x9d\x06\n\x04Pool\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11health_monitor_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10load_balancer_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0e\x61\x64min_state_up\x18\x04 \x01(\x08\x12\x44\n\x08protocol\x18\x05 \x01(\x0e\x32-.org.midonet.cluster.models.Pool.PoolProtocol:\x03TCP\x12M\n\tlb_method\x18\x06 \x01(\x0e\x32-.org.midonet.cluster.models.Pool.PoolLBMethod:\x0bROUND_ROBIN\x12<\n\x06status\x18\x07 \x01(\x0e\x32$.org.midonet.cluster.models.LBStatus:\x06\x41\x43TIVE\x12W\n\x0emapping_status\x18\x08 \x01(\x0e\x32?.org.midonet.cluster.models.Pool.PoolHealthMonitorMappingStatus\x12\x39\n\x0fpool_member_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07vip_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\x17\n\x0cPoolProtocol\x12\x07\n\x03TCP\x10\x01\"\x1f\n\x0cPoolLBMethod\x12\x0f\n\x0bROUND_ROBIN\x10\x01\"\x81\x01\n\x1ePoolHealthMonitorMappingStatus\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0c\n\x08INACTIVE\x10\x02\x12\x12\n\x0ePENDING_CREATE\x10\x03\x12\x12\n\x0ePENDING_UPDATE\x10\x04\x12\x12\n\x0ePENDING_DELETE\x10\x05\x12\t\n\x05\x45RROR\x10\x06\"\xa2\x02\n\nPoolMember\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0e\x61\x64min_state_up\x18\x02 \x01(\x08\x12\x31\n\x07pool_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x06status\x18\x04 \x01(\x0e\x32$.org.midonet.cluster.models.LBStatus:\x06\x41\x43TIVE\x12\x36\n\x07\x61\x64\x64ress\x18\x05 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x15\n\rprotocol_port\x18\x06 \x01(\x05\x12\x0e\n\x06weight\x18\x07 \x01(\x05\"\x88\x0c\n\x04Port\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nnetwork_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x33\n\trouter_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11inbound_filter_id\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12outbound_filter_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x12\n\ntunnel_key\x18\x06 \x01(\x04\x12\x31\n\x07peer_id\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x30\n\x06vif_id\x18\x08 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07host_id\x18\t \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0einterface_name\x18\n \x01(\t\x12\x1c\n\x0e\x61\x64min_state_up\x18\x0b \x01(\x08:\x04true\x12\x38\n\x0eport_group_ids\x18\x0c \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0f\n\x07vlan_id\x18\r \x01(\r\x12\x39\n\x0bport_subnet\x18\x0e \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12;\n\x0cport_address\x18\x0f \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x10\n\x08port_mac\x18\x10 \x01(\t\x12\x33\n\troute_ids\x18\x11 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07\x64hcp_id\x18\x12 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07vtep_id\x18\x13 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12inbound_mirror_ids\x18\x14 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13outbound_mirror_ids\x18\x15 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x41\n\x17l2insertion_infilter_id\x18\x17 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x42\n\x18l2insertion_outfilter_id\x18\x18 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12>\n\x14service_container_id\x18\x19 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07vip_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10\x66ip_nat_rule_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11trace_request_ids\x18g \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nmirror_ids\x18h \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x37\n\rinsertion_ids\x18n \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11srv_insertion_ids\x18o \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xdd\x01\n\tPortGroup\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\ttenant_id\x18\x03 \x01(\t\x12\x10\n\x08stateful\x18\x04 \x01(\x08\x12\x32\n\x08port_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11service_group_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xb2\x04\n\x05Route\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x38\n\nsrc_subnet\x18\x02 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x38\n\ndst_subnet\x18\x03 \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12;\n\x08next_hop\x18\x04 \x01(\x0e\x32).org.midonet.cluster.models.Route.NextHop\x12:\n\x10next_hop_port_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0e\n\x06weight\x18\x06 \x01(\x05\x12\x12\n\nattributes\x18\x07 \x01(\t\x12\x33\n\trouter_id\x18\x08 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12?\n\x10next_hop_gateway\x18\t \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x39\n\x0fgateway_dhcp_id\x18\n \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"9\n\x07NextHop\x12\r\n\tBLACKHOLE\x10\x00\x12\n\n\x06REJECT\x10\x01\x12\x08\n\x04PORT\x10\x02\x12\t\n\x05LOCAL\x10\x03\"\x96\x06\n\x06Router\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x11\n\ttenant_id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x16\n\x0e\x61\x64min_state_up\x18\x04 \x01(\x08\x12;\n\x11inbound_filter_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12outbound_filter_id\x18\x06 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10load_balancer_id\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x33\n\troute_ids\x18\x08 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x15\n\tas_number\x18\t \x01(\x05:\x02-1\x12\x39\n\x0f\x62gp_network_ids\x18\n \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x36\n\x0c\x62gp_peer_ids\x18\x0b \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\x12inbound_mirror_ids\x18\x0c \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12=\n\x13outbound_mirror_ids\x18\r \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x41\n\x17local_redirect_chain_id\x18\x0e \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x32\n\x08port_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12;\n\x11trace_request_ids\x18\x66 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xa7\x0b\n\x04Rule\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x33\n\x04type\x18\x02 \x01(\x0e\x32%.org.midonet.cluster.models.Rule.Type\x12\x32\n\x08\x63hain_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x37\n\x06\x61\x63tion\x18\x04 \x01(\x0e\x32\'.org.midonet.cluster.models.Rule.Action\x12\x38\n\tcondition\x18\x05 \x01(\x0b\x32%.org.midonet.cluster.models.Condition\x12\x35\n\x0b\x66ip_port_id\x18\x06 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12G\n\x0ejump_rule_data\x18\x64 \x01(\x0b\x32-.org.midonet.cluster.models.Rule.JumpRuleDataH\x00\x12\x45\n\rnat_rule_data\x18\x65 \x01(\x0b\x32,.org.midonet.cluster.models.Rule.NatRuleDataH\x00\x12I\n\x0ftrace_rule_data\x18\x66 \x01(\x0b\x32..org.midonet.cluster.models.Rule.TraceRuleDataH\x00\x12S\n\x13transform_rule_data\x18g \x01(\x0b\x32\x34.org.midonet.cluster.models.Rule.L2TransformRuleDataH\x00\x1a`\n\x0cJumpRuleData\x12\x37\n\rjump_chain_id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x17\n\x0fjump_chain_name\x18\x02 \x01(\t\x1a\x9d\x01\n\tNatTarget\x12\x37\n\x08nw_start\x18\x01 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x35\n\x06nw_end\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x10\n\x08tp_start\x18\x03 \x01(\r\x12\x0e\n\x06tp_end\x18\x04 \x01(\r\x1am\n\x0bNatRuleData\x12?\n\x0bnat_targets\x18\x01 \x03(\x0b\x32*.org.midonet.cluster.models.Rule.NatTarget\x12\x0c\n\x04\x64nat\x18\x02 \x01(\x08\x12\x0f\n\x07reverse\x18\x03 \x01(\x08\x1aZ\n\rTraceRuleData\x12:\n\x10trace_request_id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\r\n\x05limit\x18\x02 \x01(\x04\x1a\x98\x01\n\x13L2TransformRuleData\x12\x10\n\x08pop_vlan\x18\x01 \x01(\x08\x12\x11\n\tpush_vlan\x18\x02 \x01(\r\x12\x38\n\x0etarget_port_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0f\n\x07ingress\x18\x04 \x01(\x08\x12\x11\n\tfail_open\x18\x05 \x01(\x08\"[\n\x04Type\x12\x10\n\x0cLITERAL_RULE\x10\x01\x12\x0c\n\x08NAT_RULE\x10\x02\x12\r\n\tJUMP_RULE\x10\x03\x12\x0e\n\nTRACE_RULE\x10\x04\x12\x14\n\x10L2TRANSFORM_RULE\x10\x05\"\\\n\x06\x41\x63tion\x12\n\n\x06\x41\x43\x43\x45PT\x10\x01\x12\x0c\n\x08\x43ONTINUE\x10\x02\x12\x08\n\x04\x44ROP\x10\x03\x12\x08\n\x04JUMP\x10\x04\x12\n\n\x06REJECT\x10\x05\x12\n\n\x06RETURN\x10\x06\x12\x0c\n\x08REDIRECT\x10\x07\x42\x0b\n\trule_data\"\x81\x02\n\x10ServiceContainer\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x10service_group_id\x18\x02 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x07port_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x14\n\x0cservice_type\x18\x04 \x01(\t\x12:\n\x10\x63onfiguration_id\x18\x05 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"\xf8\x01\n\x15ServiceContainerGroup\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x37\n\rhost_group_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x37\n\rport_group_id\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12?\n\x15service_container_ids\x18\x65 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\"\xdf\x02\n\x0cTraceRequest\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\x12\x38\n\tcondition\x18\x03 \x01(\x0b\x32%.org.midonet.cluster.models.Condition\x12\r\n\x05limit\x18\x04 \x01(\x04\x12\x0c\n\x04name\x18\x05 \x01(\t\x12\x1b\n\x13\x63reate_timestamp_ms\x18\x06 \x01(\x04\x12\x31\n\x07port_id\x18\x65 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x34\n\nnetwork_id\x18\x66 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x33\n\trouter_id\x18g \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"\x8f\x03\n\nTunnelZone\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x39\n\x04type\x18\x03 \x01(\x0e\x32+.org.midonet.cluster.models.TunnelZone.Type\x12>\n\x05hosts\x18\x04 \x03(\x0b\x32/.org.midonet.cluster.models.TunnelZone.HostToIp\x12\x32\n\x08host_ids\x18\x05 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x1ap\n\x08HostToIp\x12\x31\n\x07host_id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x31\n\x02ip\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\"$\n\x04Type\x12\x07\n\x03GRE\x10\x01\x12\t\n\x05VXLAN\x10\x02\x12\x08\n\x04VTEP\x10\x03\"\xfe\x02\n\x03Vip\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0e\x61\x64min_state_up\x18\x02 \x01(\x08\x12\x31\n\x07pool_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x36\n\x07\x61\x64\x64ress\x18\x04 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x15\n\rprotocol_port\x18\x05 \x01(\r\x12O\n\x13session_persistence\x18\x06 \x01(\x0e\x32\x32.org.midonet.cluster.models.Vip.SessionPersistence\x12\x39\n\x0fgateway_port_id\x18\x07 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\"#\n\x12SessionPersistence\x12\r\n\tSOURCE_IP\x10\x01\"\xe6\x02\n\x04Vtep\x12,\n\x02id\x18\x01 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12<\n\rmanagement_ip\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\x12\x17\n\x0fmanagement_port\x18\x03 \x01(\r\x12\x38\n\x0etunnel_zone_id\x18\x04 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12:\n\x08\x62indings\x18\x06 \x03(\x0b\x32(.org.midonet.cluster.models.Vtep.Binding\x1a\x63\n\x07\x42inding\x12\x11\n\tport_name\x18\x01 \x01(\t\x12\x0f\n\x07vlan_id\x18\x02 \x01(\r\x12\x34\n\nnetwork_id\x18\x03 \x01(\x0b\x32 .org.midonet.cluster.models.UUID*\x86\x03\n\x04Type\x12\x0f\n\x0b\x42GP_NETWORK\x10\x01\x12\x0c\n\x08\x42GP_PEER\x10\x02\x12\t\n\x05\x43HAIN\x10\x03\x12\x08\n\x04\x44HCP\x10\x04\x12\x0b\n\x07\x44HCP_V6\x10\x05\x12\x12\n\x0eHEALTH_MONITOR\x10\x06\x12\x08\n\x04HOST\x10\x07\x12\x11\n\rIP_ADDR_GROUP\x10\x08\x12\x11\n\rLOAD_BALANCER\x10\t\x12\x0b\n\x07NETWORK\x10\n\x12\x08\n\x04POOL\x10\x0b\x12\x0f\n\x0bPOOL_MEMBER\x10\x0c\x12\x08\n\x04PORT\x10\r\x12\x0e\n\nPORT_GROUP\x10\x0e\x12\t\n\x05ROUTE\x10\x0f\x12\n\n\x06ROUTER\x10\x10\x12\x08\n\x04RULE\x10\x11\x12\x11\n\rTRACE_REQUEST\x10\x12\x12\x0f\n\x0bTUNNEL_ZONE\x10\x13\x12\x07\n\x03VIP\x10\x14\x12\x08\n\x04VTEP\x10\x15\x12\n\n\x06MIRROR\x10\x16\x12\x0e\n\nHOST_GROUP\x10\x17\x12\x0f\n\x0bL2INSERTION\x10\x1f\x12\x15\n\x11SERVICE_CONTAINER\x10 \x12\x1b\n\x17SERVICE_CONTAINER_GROUP\x10!B&\n\x1aorg.midonet.cluster.modelsB\x08Topology')
   ,
   dependencies=[commons_pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -138,8 +138,8 @@ _TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=13401,
-  serialized_end=13791,
+  serialized_start=13109,
+  serialized_end=13499,
 )
 _sym_db.RegisterEnumDescriptor(_TYPE)
 
@@ -203,8 +203,8 @@ _POOL_POOLPROTOCOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=6098,
-  serialized_end=6121,
+  serialized_start=6033,
+  serialized_end=6056,
 )
 _sym_db.RegisterEnumDescriptor(_POOL_POOLPROTOCOL)
 
@@ -221,8 +221,8 @@ _POOL_POOLLBMETHOD = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=6123,
-  serialized_end=6154,
+  serialized_start=6058,
+  serialized_end=6089,
 )
 _sym_db.RegisterEnumDescriptor(_POOL_POOLLBMETHOD)
 
@@ -259,8 +259,8 @@ _POOL_POOLHEALTHMONITORMAPPINGSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=6157,
-  serialized_end=6286,
+  serialized_start=6092,
+  serialized_end=6221,
 )
 _sym_db.RegisterEnumDescriptor(_POOL_POOLHEALTHMONITORMAPPINGSTATUS)
 
@@ -289,8 +289,8 @@ _ROUTE_NEXTHOP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=8858,
-  serialized_end=8915,
+  serialized_start=8793,
+  serialized_end=8850,
 )
 _sym_db.RegisterEnumDescriptor(_ROUTE_NEXTHOP)
 
@@ -323,8 +323,8 @@ _RULE_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=11025,
-  serialized_end=11116,
+  serialized_start=10895,
+  serialized_end=10986,
 )
 _sym_db.RegisterEnumDescriptor(_RULE_TYPE)
 
@@ -365,36 +365,10 @@ _RULE_ACTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=11118,
-  serialized_end=11210,
+  serialized_start=10988,
+  serialized_end=11080,
 )
 _sym_db.RegisterEnumDescriptor(_RULE_ACTION)
-
-_SERVICECONTAINERGROUP_SERVICE = _descriptor.EnumDescriptor(
-  name='Service',
-  full_name='org.midonet.cluster.models.ServiceContainerGroup.Service',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='IPSEC', index=0, number=0,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='QUAGGA', index=1, number=1,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='HAPROXY', index=2, number=2,
-      options=None,
-      type=None),
-  ],
-  containing_type=None,
-  options=None,
-  serialized_start=11851,
-  serialized_end=11896,
-)
-_sym_db.RegisterEnumDescriptor(_SERVICECONTAINERGROUP_SERVICE)
 
 _TUNNELZONE_TYPE = _descriptor.EnumDescriptor(
   name='Type',
@@ -417,8 +391,8 @@ _TUNNELZONE_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=12616,
-  serialized_end=12652,
+  serialized_start=12324,
+  serialized_end=12360,
 )
 _sym_db.RegisterEnumDescriptor(_TUNNELZONE_TYPE)
 
@@ -435,8 +409,8 @@ _VIP_SESSIONPERSISTENCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=13002,
-  serialized_end=13037,
+  serialized_start=12710,
+  serialized_end=12745,
 )
 _sym_db.RegisterEnumDescriptor(_VIP_SESSIONPERSISTENCE)
 
@@ -1619,13 +1593,6 @@ _NETWORK = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
-    _descriptor.FieldDescriptor(
-      name='service_container_ids', full_name='org.midonet.cluster.models.Network.service_container_ids', index=15,
-      number=106, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
   ],
   extensions=[
   ],
@@ -1638,7 +1605,7 @@ _NETWORK = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=4751,
-  serialized_end=5486,
+  serialized_end=5421,
 )
 
 
@@ -1733,8 +1700,8 @@ _POOL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5489,
-  serialized_end=6286,
+  serialized_start=5424,
+  serialized_end=6221,
 )
 
 
@@ -1805,8 +1772,8 @@ _POOLMEMBER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6289,
-  serialized_end=6579,
+  serialized_start=6224,
+  serialized_end=6514,
 )
 
 
@@ -2038,8 +2005,8 @@ _PORT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6582,
-  serialized_end=8126,
+  serialized_start=6517,
+  serialized_end=8061,
 )
 
 
@@ -2103,8 +2070,8 @@ _PORTGROUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8129,
-  serialized_end=8350,
+  serialized_start=8064,
+  serialized_end=8285,
 )
 
 
@@ -2197,8 +2164,8 @@ _ROUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8353,
-  serialized_end=8915,
+  serialized_start=8288,
+  serialized_end=8850,
 )
 
 
@@ -2321,13 +2288,6 @@ _ROUTER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
-    _descriptor.FieldDescriptor(
-      name='service_container_ids', full_name='org.midonet.cluster.models.Router.service_container_ids', index=16,
-      number=103, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
   ],
   extensions=[
   ],
@@ -2339,8 +2299,8 @@ _ROUTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8918,
-  serialized_end=9773,
+  serialized_start=8853,
+  serialized_end=9643,
 )
 
 
@@ -2376,8 +2336,8 @@ _RULE_JUMPRULEDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10409,
-  serialized_end=10505,
+  serialized_start=10279,
+  serialized_end=10375,
 )
 
 _RULE_NATTARGET = _descriptor.Descriptor(
@@ -2426,8 +2386,8 @@ _RULE_NATTARGET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10508,
-  serialized_end=10665,
+  serialized_start=10378,
+  serialized_end=10535,
 )
 
 _RULE_NATRULEDATA = _descriptor.Descriptor(
@@ -2469,8 +2429,8 @@ _RULE_NATRULEDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10667,
-  serialized_end=10776,
+  serialized_start=10537,
+  serialized_end=10646,
 )
 
 _RULE_TRACERULEDATA = _descriptor.Descriptor(
@@ -2505,8 +2465,8 @@ _RULE_TRACERULEDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10778,
-  serialized_end=10868,
+  serialized_start=10648,
+  serialized_end=10738,
 )
 
 _RULE_L2TRANSFORMRULEDATA = _descriptor.Descriptor(
@@ -2562,8 +2522,8 @@ _RULE_L2TRANSFORMRULEDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10871,
-  serialized_end=11023,
+  serialized_start=10741,
+  serialized_end=10893,
 )
 
 _RULE = _descriptor.Descriptor(
@@ -2659,8 +2619,8 @@ _RULE = _descriptor.Descriptor(
       name='rule_data', full_name='org.midonet.cluster.models.Rule.rule_data',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=9776,
-  serialized_end=11223,
+  serialized_start=9646,
+  serialized_end=11093,
 )
 
 
@@ -2686,16 +2646,16 @@ _SERVICECONTAINER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='router_id', full_name='org.midonet.cluster.models.ServiceContainer.router_id', index=2,
+      name='port_id', full_name='org.midonet.cluster.models.ServiceContainer.port_id', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='network_id', full_name='org.midonet.cluster.models.ServiceContainer.network_id', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='service_type', full_name='org.midonet.cluster.models.ServiceContainer.service_type', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -2717,8 +2677,8 @@ _SERVICECONTAINER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11226,
-  serialized_end=11517,
+  serialized_start=11096,
+  serialized_end=11353,
 )
 
 
@@ -2737,28 +2697,21 @@ _SERVICECONTAINERGROUP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='service_type', full_name='org.midonet.cluster.models.ServiceContainerGroup.service_type', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='host_group_id', full_name='org.midonet.cluster.models.ServiceContainerGroup.host_group_id', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='host_group_id', full_name='org.midonet.cluster.models.ServiceContainerGroup.host_group_id', index=2,
+      name='port_group_id', full_name='org.midonet.cluster.models.ServiceContainerGroup.port_group_id', index=2,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='port_group_id', full_name='org.midonet.cluster.models.ServiceContainerGroup.port_group_id', index=3,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='service_container_ids', full_name='org.midonet.cluster.models.ServiceContainerGroup.service_container_ids', index=4,
+      name='service_container_ids', full_name='org.midonet.cluster.models.ServiceContainerGroup.service_container_ids', index=3,
       number=101, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2769,15 +2722,14 @@ _SERVICECONTAINERGROUP = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _SERVICECONTAINERGROUP_SERVICE,
   ],
   options=None,
   is_extendable=False,
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11520,
-  serialized_end=11896,
+  serialized_start=11356,
+  serialized_end=11604,
 )
 
 
@@ -2862,8 +2814,8 @@ _TRACEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11899,
-  serialized_end=12250,
+  serialized_start=11607,
+  serialized_end=11958,
 )
 
 
@@ -2899,8 +2851,8 @@ _TUNNELZONE_HOSTTOIP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12502,
-  serialized_end=12614,
+  serialized_start=12210,
+  serialized_end=12322,
 )
 
 _TUNNELZONE = _descriptor.Descriptor(
@@ -2957,8 +2909,8 @@ _TUNNELZONE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12253,
-  serialized_end=12652,
+  serialized_start=11961,
+  serialized_end=12360,
 )
 
 
@@ -3030,8 +2982,8 @@ _VIP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12655,
-  serialized_end=13037,
+  serialized_start=12363,
+  serialized_end=12745,
 )
 
 
@@ -3074,8 +3026,8 @@ _VTEP_BINDING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13299,
-  serialized_end=13398,
+  serialized_start=13007,
+  serialized_end=13106,
 )
 
 _VTEP = _descriptor.Descriptor(
@@ -3131,8 +3083,8 @@ _VTEP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13040,
-  serialized_end=13398,
+  serialized_start=12748,
+  serialized_end=13106,
 )
 
 _BGPNETWORK.fields_by_name['id'].message_type = commons_pb2._UUID
@@ -3220,7 +3172,6 @@ _NETWORK.fields_by_name['vxlan_port_ids'].message_type = commons_pb2._UUID
 _NETWORK.fields_by_name['dhcp_ids'].message_type = commons_pb2._UUID
 _NETWORK.fields_by_name['dhcpv6_ids'].message_type = commons_pb2._UUID
 _NETWORK.fields_by_name['trace_request_ids'].message_type = commons_pb2._UUID
-_NETWORK.fields_by_name['service_container_ids'].message_type = commons_pb2._UUID
 _POOL.fields_by_name['id'].message_type = commons_pb2._UUID
 _POOL.fields_by_name['health_monitor_id'].message_type = commons_pb2._UUID
 _POOL.fields_by_name['load_balancer_id'].message_type = commons_pb2._UUID
@@ -3286,7 +3237,6 @@ _ROUTER.fields_by_name['outbound_mirror_ids'].message_type = commons_pb2._UUID
 _ROUTER.fields_by_name['local_redirect_chain_id'].message_type = commons_pb2._UUID
 _ROUTER.fields_by_name['port_ids'].message_type = commons_pb2._UUID
 _ROUTER.fields_by_name['trace_request_ids'].message_type = commons_pb2._UUID
-_ROUTER.fields_by_name['service_container_ids'].message_type = commons_pb2._UUID
 _RULE_JUMPRULEDATA.fields_by_name['jump_chain_id'].message_type = commons_pb2._UUID
 _RULE_JUMPRULEDATA.containing_type = _RULE
 _RULE_NATTARGET.fields_by_name['nw_start'].message_type = commons_pb2._IPADDRESS
@@ -3324,15 +3274,12 @@ _RULE.oneofs_by_name['rule_data'].fields.append(
 _RULE.fields_by_name['transform_rule_data'].containing_oneof = _RULE.oneofs_by_name['rule_data']
 _SERVICECONTAINER.fields_by_name['id'].message_type = commons_pb2._UUID
 _SERVICECONTAINER.fields_by_name['service_group_id'].message_type = commons_pb2._UUID
-_SERVICECONTAINER.fields_by_name['router_id'].message_type = commons_pb2._UUID
-_SERVICECONTAINER.fields_by_name['network_id'].message_type = commons_pb2._UUID
+_SERVICECONTAINER.fields_by_name['port_id'].message_type = commons_pb2._UUID
 _SERVICECONTAINER.fields_by_name['configuration_id'].message_type = commons_pb2._UUID
 _SERVICECONTAINERGROUP.fields_by_name['id'].message_type = commons_pb2._UUID
-_SERVICECONTAINERGROUP.fields_by_name['service_type'].enum_type = _SERVICECONTAINERGROUP_SERVICE
 _SERVICECONTAINERGROUP.fields_by_name['host_group_id'].message_type = commons_pb2._UUID
 _SERVICECONTAINERGROUP.fields_by_name['port_group_id'].message_type = commons_pb2._UUID
 _SERVICECONTAINERGROUP.fields_by_name['service_container_ids'].message_type = commons_pb2._UUID
-_SERVICECONTAINERGROUP_SERVICE.containing_type = _SERVICECONTAINERGROUP
 _TRACEREQUEST.fields_by_name['id'].message_type = commons_pb2._UUID
 _TRACEREQUEST.fields_by_name['condition'].message_type = commons_pb2._CONDITION
 _TRACEREQUEST.fields_by_name['port_id'].message_type = commons_pb2._UUID
