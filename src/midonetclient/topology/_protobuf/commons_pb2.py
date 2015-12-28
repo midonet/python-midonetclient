@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='commons.proto',
   package='org.midonet.cluster.models',
-  serialized_pb=_b('\n\rcommons.proto\x12\x1aorg.midonet.cluster.models\" \n\x04UUID\x12\x0b\n\x03msb\x18\x01 \x02(\x04\x12\x0b\n\x03lsb\x18\x02 \x02(\x04\"T\n\tIPAddress\x12\x36\n\x07version\x18\x01 \x02(\x0e\x32%.org.midonet.cluster.models.IPVersion\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x02(\t\"j\n\x08IPSubnet\x12\x36\n\x07version\x18\x01 \x02(\x0e\x32%.org.midonet.cluster.models.IPVersion\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\x12\x15\n\rprefix_length\x18\x03 \x01(\r\"(\n\nInt32Range\x12\r\n\x05start\x18\x01 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x05\"\xb0\n\n\tCondition\x12\x17\n\x0f\x63onjunction_inv\x18\x01 \x01(\x08\x12\x1a\n\x12match_forward_flow\x18\x02 \x01(\x08\x12\x19\n\x11match_return_flow\x18\x03 \x01(\x08\x12\x35\n\x0bin_port_ids\x18\x04 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x13\n\x0bin_port_inv\x18\x05 \x01(\x08\x12\x36\n\x0cout_port_ids\x18\x06 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x14\n\x0cout_port_inv\x18\x07 \x01(\x08\x12\x37\n\rport_group_id\x18\x08 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0einv_port_group\x18\t \x01(\x08\x12>\n\x14ip_addr_group_id_src\x18\n \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12 \n\x18inv_ip_addr_group_id_src\x18\x0b \x01(\x08\x12>\n\x14ip_addr_group_id_dst\x18\x0c \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12 \n\x18inv_ip_addr_group_id_dst\x18\r \x01(\x08\x12\x0f\n\x07\x64l_type\x18\x0e \x01(\x05\x12\x13\n\x0binv_dl_type\x18\x0f \x01(\x08\x12\x0e\n\x06\x64l_src\x18\x10 \x01(\t\x12\x13\n\x0b\x64l_src_mask\x18\x11 \x01(\x03\x12\x12\n\ninv_dl_src\x18\x12 \x01(\x08\x12\x0e\n\x06\x64l_dst\x18\x13 \x01(\t\x12\x13\n\x0b\x64l_dst_mask\x18\x14 \x01(\x03\x12\x12\n\ninv_dl_dst\x18\x15 \x01(\x08\x12\x0e\n\x06nw_tos\x18\x16 \x01(\x05\x12\x12\n\nnw_tos_inv\x18\x17 \x01(\x08\x12\x10\n\x08nw_proto\x18\x18 \x01(\x05\x12\x14\n\x0cnw_proto_inv\x18\x19 \x01(\x08\x12\x37\n\tnw_src_ip\x18\x1a \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x37\n\tnw_dst_ip\x18\x1b \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x36\n\x06tp_src\x18\x1c \x01(\x0b\x32&.org.midonet.cluster.models.Int32Range\x12\x36\n\x06tp_dst\x18\x1d \x01(\x0b\x32&.org.midonet.cluster.models.Int32Range\x12\x12\n\nnw_src_inv\x18\x1e \x01(\x08\x12\x12\n\nnw_dst_inv\x18\x1f \x01(\x08\x12\x12\n\ntp_src_inv\x18  \x01(\x08\x12\x12\n\ntp_dst_inv\x18! \x01(\x08\x12:\n\x10traversed_device\x18\" \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x1c\n\x14traversed_device_inv\x18# \x01(\x08\x12M\n\x0f\x66ragment_policy\x18$ \x01(\x0e\x32\x34.org.midonet.cluster.models.Condition.FragmentPolicy\x12\x0f\n\x07no_vlan\x18< \x01(\x08\x12\x0c\n\x04vlan\x18= \x01(\r\"F\n\x0e\x46ragmentPolicy\x12\x07\n\x03\x41NY\x10\x01\x12\r\n\tNONHEADER\x10\x02\x12\n\n\x06HEADER\x10\x03\x12\x10\n\x0cUNFRAGMENTED\x10\x04*\x1b\n\tIPVersion\x12\x06\n\x02V4\x10\x01\x12\x06\n\x02V6\x10\x02*(\n\rRuleDirection\x12\n\n\x06\x45GRESS\x10\x00\x12\x0b\n\x07INGRESS\x10\x01*,\n\tEtherType\x12\x08\n\x03\x41RP\x10\x86\x10\x12\t\n\x04IPV4\x10\x80\x10\x12\n\n\x04IPV6\x10\xdd\x8d\x02*2\n\x08Protocol\x12\x07\n\x03TCP\x10\x06\x12\x07\n\x03UDP\x10\x11\x12\x08\n\x04ICMP\x10\x01\x12\n\n\x06ICMPV6\x10:*$\n\x08LBStatus\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0c\n\x08INACTIVE\x10\x02\x42%\n\x1aorg.midonet.cluster.modelsB\x07\x43ommons')
+  serialized_pb=_b('\n\rcommons.proto\x12\x1aorg.midonet.cluster.models\" \n\x04UUID\x12\x0b\n\x03msb\x18\x01 \x02(\x04\x12\x0b\n\x03lsb\x18\x02 \x02(\x04\"T\n\tIPAddress\x12\x36\n\x07version\x18\x01 \x02(\x0e\x32%.org.midonet.cluster.models.IPVersion\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x02(\t\"j\n\x08IPSubnet\x12\x36\n\x07version\x18\x01 \x02(\x0e\x32%.org.midonet.cluster.models.IPVersion\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\x12\x15\n\rprefix_length\x18\x03 \x01(\r\"G\n\x05MacIp\x12\x0b\n\x03mac\x18\x01 \x01(\t\x12\x31\n\x02ip\x18\x02 \x01(\x0b\x32%.org.midonet.cluster.models.IPAddress\"(\n\nInt32Range\x12\r\n\x05start\x18\x01 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x05\"\xb0\n\n\tCondition\x12\x17\n\x0f\x63onjunction_inv\x18\x01 \x01(\x08\x12\x1a\n\x12match_forward_flow\x18\x02 \x01(\x08\x12\x19\n\x11match_return_flow\x18\x03 \x01(\x08\x12\x35\n\x0bin_port_ids\x18\x04 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x13\n\x0bin_port_inv\x18\x05 \x01(\x08\x12\x36\n\x0cout_port_ids\x18\x06 \x03(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x14\n\x0cout_port_inv\x18\x07 \x01(\x08\x12\x37\n\rport_group_id\x18\x08 \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x16\n\x0einv_port_group\x18\t \x01(\x08\x12>\n\x14ip_addr_group_id_src\x18\n \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12 \n\x18inv_ip_addr_group_id_src\x18\x0b \x01(\x08\x12>\n\x14ip_addr_group_id_dst\x18\x0c \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12 \n\x18inv_ip_addr_group_id_dst\x18\r \x01(\x08\x12\x0f\n\x07\x64l_type\x18\x0e \x01(\x05\x12\x13\n\x0binv_dl_type\x18\x0f \x01(\x08\x12\x0e\n\x06\x64l_src\x18\x10 \x01(\t\x12\x13\n\x0b\x64l_src_mask\x18\x11 \x01(\x03\x12\x12\n\ninv_dl_src\x18\x12 \x01(\x08\x12\x0e\n\x06\x64l_dst\x18\x13 \x01(\t\x12\x13\n\x0b\x64l_dst_mask\x18\x14 \x01(\x03\x12\x12\n\ninv_dl_dst\x18\x15 \x01(\x08\x12\x0e\n\x06nw_tos\x18\x16 \x01(\x05\x12\x12\n\nnw_tos_inv\x18\x17 \x01(\x08\x12\x10\n\x08nw_proto\x18\x18 \x01(\x05\x12\x14\n\x0cnw_proto_inv\x18\x19 \x01(\x08\x12\x37\n\tnw_src_ip\x18\x1a \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x37\n\tnw_dst_ip\x18\x1b \x01(\x0b\x32$.org.midonet.cluster.models.IPSubnet\x12\x36\n\x06tp_src\x18\x1c \x01(\x0b\x32&.org.midonet.cluster.models.Int32Range\x12\x36\n\x06tp_dst\x18\x1d \x01(\x0b\x32&.org.midonet.cluster.models.Int32Range\x12\x12\n\nnw_src_inv\x18\x1e \x01(\x08\x12\x12\n\nnw_dst_inv\x18\x1f \x01(\x08\x12\x12\n\ntp_src_inv\x18  \x01(\x08\x12\x12\n\ntp_dst_inv\x18! \x01(\x08\x12:\n\x10traversed_device\x18\" \x01(\x0b\x32 .org.midonet.cluster.models.UUID\x12\x1c\n\x14traversed_device_inv\x18# \x01(\x08\x12M\n\x0f\x66ragment_policy\x18$ \x01(\x0e\x32\x34.org.midonet.cluster.models.Condition.FragmentPolicy\x12\x0f\n\x07no_vlan\x18< \x01(\x08\x12\x0c\n\x04vlan\x18= \x01(\r\"F\n\x0e\x46ragmentPolicy\x12\x07\n\x03\x41NY\x10\x01\x12\r\n\tNONHEADER\x10\x02\x12\n\n\x06HEADER\x10\x03\x12\x10\n\x0cUNFRAGMENTED\x10\x04*\x1b\n\tIPVersion\x12\x06\n\x02V4\x10\x01\x12\x06\n\x02V6\x10\x02*(\n\rRuleDirection\x12\n\n\x06\x45GRESS\x10\x00\x12\x0b\n\x07INGRESS\x10\x01*,\n\tEtherType\x12\x08\n\x03\x41RP\x10\x86\x10\x12\t\n\x04IPV4\x10\x80\x10\x12\n\n\x04IPV6\x10\xdd\x8d\x02*2\n\x08Protocol\x12\x07\n\x03TCP\x10\x06\x12\x07\n\x03UDP\x10\x11\x12\x08\n\x04ICMP\x10\x01\x12\n\n\x06ICMPV6\x10:*$\n\x08LBStatus\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0c\n\x08INACTIVE\x10\x02\x42%\n\x1aorg.midonet.cluster.modelsB\x07\x43ommons')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -40,8 +40,8 @@ _IPVERSION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1646,
-  serialized_end=1673,
+  serialized_start=1719,
+  serialized_end=1746,
 )
 _sym_db.RegisterEnumDescriptor(_IPVERSION)
 
@@ -63,8 +63,8 @@ _RULEDIRECTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1675,
-  serialized_end=1715,
+  serialized_start=1748,
+  serialized_end=1788,
 )
 _sym_db.RegisterEnumDescriptor(_RULEDIRECTION)
 
@@ -90,8 +90,8 @@ _ETHERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1717,
-  serialized_end=1761,
+  serialized_start=1790,
+  serialized_end=1834,
 )
 _sym_db.RegisterEnumDescriptor(_ETHERTYPE)
 
@@ -121,8 +121,8 @@ _PROTOCOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1763,
-  serialized_end=1813,
+  serialized_start=1836,
+  serialized_end=1886,
 )
 _sym_db.RegisterEnumDescriptor(_PROTOCOL)
 
@@ -144,8 +144,8 @@ _LBSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1815,
-  serialized_end=1851,
+  serialized_start=1888,
+  serialized_end=1924,
 )
 _sym_db.RegisterEnumDescriptor(_LBSTATUS)
 
@@ -190,8 +190,8 @@ _CONDITION_FRAGMENTPOLICY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1574,
-  serialized_end=1644,
+  serialized_start=1647,
+  serialized_end=1717,
 )
 _sym_db.RegisterEnumDescriptor(_CONDITION_FRAGMENTPOLICY)
 
@@ -314,6 +314,43 @@ _IPSUBNET = _descriptor.Descriptor(
 )
 
 
+_MACIP = _descriptor.Descriptor(
+  name='MacIp',
+  full_name='org.midonet.cluster.models.MacIp',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='mac', full_name='org.midonet.cluster.models.MacIp.mac', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='ip', full_name='org.midonet.cluster.models.MacIp.ip', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=273,
+  serialized_end=344,
+)
+
+
 _INT32RANGE = _descriptor.Descriptor(
   name='Int32Range',
   full_name='org.midonet.cluster.models.Int32Range',
@@ -346,8 +383,8 @@ _INT32RANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=273,
-  serialized_end=313,
+  serialized_start=346,
+  serialized_end=386,
 )
 
 
@@ -636,12 +673,13 @@ _CONDITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=316,
-  serialized_end=1644,
+  serialized_start=389,
+  serialized_end=1717,
 )
 
 _IPADDRESS.fields_by_name['version'].enum_type = _IPVERSION
 _IPSUBNET.fields_by_name['version'].enum_type = _IPVERSION
+_MACIP.fields_by_name['ip'].message_type = _IPADDRESS
 _CONDITION.fields_by_name['in_port_ids'].message_type = _UUID
 _CONDITION.fields_by_name['out_port_ids'].message_type = _UUID
 _CONDITION.fields_by_name['port_group_id'].message_type = _UUID
@@ -657,6 +695,7 @@ _CONDITION_FRAGMENTPOLICY.containing_type = _CONDITION
 DESCRIPTOR.message_types_by_name['UUID'] = _UUID
 DESCRIPTOR.message_types_by_name['IPAddress'] = _IPADDRESS
 DESCRIPTOR.message_types_by_name['IPSubnet'] = _IPSUBNET
+DESCRIPTOR.message_types_by_name['MacIp'] = _MACIP
 DESCRIPTOR.message_types_by_name['Int32Range'] = _INT32RANGE
 DESCRIPTOR.message_types_by_name['Condition'] = _CONDITION
 DESCRIPTOR.enum_types_by_name['IPVersion'] = _IPVERSION
@@ -685,6 +724,13 @@ IPSubnet = _reflection.GeneratedProtocolMessageType('IPSubnet', (_message.Messag
   # @@protoc_insertion_point(class_scope:org.midonet.cluster.models.IPSubnet)
   ))
 _sym_db.RegisterMessage(IPSubnet)
+
+MacIp = _reflection.GeneratedProtocolMessageType('MacIp', (_message.Message,), dict(
+  DESCRIPTOR = _MACIP,
+  __module__ = 'commons_pb2'
+  # @@protoc_insertion_point(class_scope:org.midonet.cluster.models.MacIp)
+  ))
+_sym_db.RegisterMessage(MacIp)
 
 Int32Range = _reflection.GeneratedProtocolMessageType('Int32Range', (_message.Message,), dict(
   DESCRIPTOR = _INT32RANGE,
